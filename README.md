@@ -2,8 +2,8 @@
 Repositório para aplicativo FAC
 
 ## Instalar pacotes do projeto
-$ npm install -g create-react-app
-$ npm install -g firebase-tools
+$ npm install -g create-react-app \
+$ npm install -g firebase-tools \
 $ npm install
 
 

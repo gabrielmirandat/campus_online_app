@@ -49,7 +49,7 @@ class App extends Component {
         </p>
         
         <footer>
-          <p>Copyright 2009 Your name</p>
+          <p>Copyright 2018 Desenvolvimento de Aplicativos</p>
         </footer>
       </div>
     );
