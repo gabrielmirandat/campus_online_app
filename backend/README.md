@@ -1,5 +1,5 @@
-# react_pwa_campus_online
-Repositório para aplicativo FAC
+# Frontend (react PWA)
+Projeto frontend para aplicativo FAC
 
 ## Instalar pacotes do projeto
 $ npm install -g create-react-app \
