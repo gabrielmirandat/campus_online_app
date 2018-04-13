@@ -15,20 +15,20 @@ class App extends Component {
   }
 
   openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("openSideNav").style.visibility = "hidden";
+    document.getElementById("sidenav").style.width = "250px";
+    document.getElementById("opensidenav").style.visibility = "hidden";
   }
 
   closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("openSideNav").style.visibility = "visible";
+    document.getElementById("sidenav").style.width = "0";
+    document.getElementById("opensidenav").style.visibility = "visible";
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <header>
-          <nav id="mySidenav" className="sidenav">
+          <nav id="sidenav">
             <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
             <a href="http://campus.fac.unb.br/">Site</a>
             <a href="https://twitter.com/fac_unb">Twitter</a>
@@ -37,19 +37,20 @@ class App extends Component {
             <a href="https://issuu.com/campusunb">Issu</a>
           </nav>
             
-          <span id="openSideNav" className="burger" onClick={this.openNav}>&#9776;</span>
+          <span id="opensidenav" className="burger" onClick={this.openNav}>&#9776;</span>
         </header>
 
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+        <div className="app-header">
+          <img src={logo} className="app-logo" alt="logo" />
           <h2>Campus Online</h2>
         </div>
-        <p className="App-intro">
+
+        <p className="app-intro">
           This is the Campus Online page.
         </p>
         
         <footer>
-          <p>Copyright 2018 Desenvolvimento de Aplicativos</p>
+          <h4>2018 FAC/CIC</h4>
         </footer>
       </div>
     );

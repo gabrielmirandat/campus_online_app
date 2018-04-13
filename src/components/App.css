@@ -1,35 +1,31 @@
-.App {
+.app {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.app-logo {
+  animation: app-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.App-header {
+.app-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
+.app-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
+@keyframes app-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
 /* new */
 
-.sidenav {
+nav {
   height: 100%;
   width: 0;
   position: fixed;
@@ -42,7 +38,7 @@
   padding-top: 60px;
 }
 
-.sidenav a {
+nav a {
   padding-bottom: 5px;
   text-decoration: none;
   font-size: 25px;
@@ -51,11 +47,11 @@
   transition: 0.3s;
 }
 
-.sidenav a:hover {
+nav a:hover {
   color: #f1f1f1;
 }
 
-.sidenav .closebtn {
+nav .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -68,8 +64,14 @@
   cursor:pointer;
 }
 
-*:focus {
-  outline: none;
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  text-align: left;
+  padding-left: 5px;
 }
-
 
