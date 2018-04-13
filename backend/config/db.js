@@ -1,6 +1,6 @@
-var env = require('./env');
+const env = require('./env');
 
-var db_cfg = {};
+const db_cfg = {};
 
 // local
 if(env == 'local') {

@@ -1,3 +1,3 @@
-var env = 'local'; // prod
+const env = 'local'; // prod
 
 module.exports = env;

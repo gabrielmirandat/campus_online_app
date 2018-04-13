@@ -1,7 +1,39 @@
-module.exports = (app) => {
-  const db = require('../libs/db_conn.js');
+const db = require('../lib/db_dml')
+  , async = require('async')
 
-  const DbController = {
+module.exports = (app) => {
+  const MigrationController = {
+    async.waterfall([
+      function(callback) {
+        var data = {
+          'db': 'F233_LICITACOES',
+          'returnColumns': [
+            'CD_UNIDADE_COMPRADORA'
+          ],
+          'json': {
+            'CD_LICITACAO': asyncF.locals.cd_licitacao
+          }
+        };
+        db.getValue(data, function(err, selectResult, successCallback) {
+          if (err || selectResult.length < 1) {
+            return successCallback(new Error("Erro ao obter unidade compradora a partir do código da licitação."));
+          }
+          
+          asyncF.locals.cd_unidade_compradora = selectResult[0].CD_UNIDADE_COMPRADORA;
+          console.log("CD_UNIDADE_COMPRADORA: ", selectResult[0].CD_UNIDADE_COMPRADORA);
+
+          process.nextTick(function() { successCallback(null); });
+        }, callback);
+      },
+    ], 
+    function (err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(asyncF.responseVector);
+      }
+    }),
+  
     // create db
     createDb(req, res) {
       let sql = 'CREATE DATABASE a4app_users';
@@ -95,5 +127,5 @@ module.exports = (app) => {
       });
     },
   }
-  return DbController
+  return MigrationController
 };

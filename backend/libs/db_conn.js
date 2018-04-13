@@ -1,4 +1,4 @@
-var mysql = require('mysql'),
+const mysql = require('mysql'),
     db_cfg = require('../config/db'),
     pool;
 

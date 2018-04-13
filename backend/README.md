@@ -1,4 +1,4 @@
-# Frontend (react PWA)
+# Backend (react PWA)
 Projeto backend para aplicativo FAC
 
 ## Instalar pacotes do projeto
