@@ -45,10 +45,20 @@ class App extends Component {
           <h2>Campus Online</h2>
         </div>
 
-        <p className="app-intro">
-          This is the Campus Online page.
-        </p>
-        
+        <div className="app-content">
+          <div className="button">
+            <a href="https://twitter.com/campusitounb" className="twitter"> TWITTER </a>
+          </div>
+
+          <div className="button">
+            <a href="https://www.instagram.com/campusonline/" className="instagram"> INSTAGRAM </a>
+          </div>
+
+          <div className="button">
+            <a href="https://www.facebook.com/onlinecampus/" className="facebook"> FACEBOOK </a>
+          </div>
+        </div>
+
         <footer>
           <h4>2018 FAC/CIC</h4>
         </footer>

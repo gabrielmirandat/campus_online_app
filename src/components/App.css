@@ -64,6 +64,21 @@ nav .closebtn {
   cursor:pointer;
 }
 
+.button {
+  line-height: 80px;
+  height: 80px;
+  margin: 25px 25px;
+  text-align: center;
+  background-color: #111;
+}
+
+.button a {
+  text-decoration: none;
+  font-size: 25px;
+  color:white;
+  display: block;
+}
+
 footer {
   position: fixed;
   left: 0;
