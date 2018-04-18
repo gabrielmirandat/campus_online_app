@@ -1,6 +1,5 @@
-var express = require('express')
-	, router = express.Router()
-  , dbMigration = require('../controllers/db_ddl_migration')
+module.exports = (app) => {
+  const { db_ddl_migration } = app.controllers;
   
-  router
-	.get('/runmigrationdb', dbMigration.controller)
+  app.get('/runmigrationdb', db_ddl_migration.run);
+}
