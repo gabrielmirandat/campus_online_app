@@ -6,8 +6,11 @@ $ npm install -g create-react-app \
 $ npm install -g firebase-tools \
 $ npm install
 
-## Rodar localmente e ver no browser (ao abrir, apertar F12 e no botão para ver responsivo)
-$ npm run start
+## Rodar localmente e ver no browser
+$ npm run start \
+Se por acaso não abrir no browser, acesse http://localhost:3000/ \
+Aperte F12 e clique no ícone para ver a tela responsiva (modo mobile)
+
 
 ## Deploy no firebase
 $ npm run build && firebase deploy
