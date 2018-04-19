@@ -27,8 +27,8 @@ module.exports = (app) => {
           });
         },
         function(arg, callback) {
-          let sql = 'CREATE TABLE IF NOT EXISTS noticia(id INT AUTO_INCREMENT, titulo VARCHAR(55) NOT NULL, resumo VARCHAR(255) NOT NULL, texto VARCHAR(555) NOT NULL, '+ 
-          'data VARCHAR(8) NOT NULL, PRIMARY KEY(id))';
+          let sql = 'CREATE TABLE IF NOT EXISTS noticia(id INT AUTO_INCREMENT, titulo VARCHAR(60) NOT NULL, resumo VARCHAR(300) NOT NULL, texto VARCHAR(600) NOT NULL, '+ 
+          'data VARCHAR(8) NOT NULL,Video boolean,Foto boolean,Audio boolean, PRIMARY KEY(id))';
           // get a connection from the pool
           pool.getConnection(function(err, connection) {
             if(err) {
