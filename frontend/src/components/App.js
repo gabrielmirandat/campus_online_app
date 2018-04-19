@@ -35,9 +35,10 @@ class App extends Component {
   }
 
   updateDate(date) {
-    this.setState({date});
-    this.toggleCalendar();
-    this.requestNews();
+    this.setState({date}, () => {
+      this.toggleCalendar();
+      this.requestNews();
+    });
   }
 
   toggleCalendar (e) {
@@ -50,6 +51,9 @@ class App extends Component {
 
     console.log(url);
     request(url, function (error, response, body) {
+      if (error) {
+        alert("Nao tem!");
+      }
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
