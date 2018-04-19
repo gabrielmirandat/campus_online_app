@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import logo from './fac.png';
-import './App.css';
+import logo from '../fac.png';
+import '../style/App.css';
+import NewsList from './NewsList'
 
 class App extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {term: ''};
-    this.news = [];
-
     this.openNav = this.openNav.bind(this);
     this.closeNav = this.closeNav.bind(this);
-    this.fetchNews = this.fetchNews.bind(this);
-    // this.showNews = this.showNews.bind(this);
   }
 
   openNav() {
@@ -24,10 +20,6 @@ class App extends Component {
   closeNav() {
     document.getElementById("sidenav").style.width = "0";
     document.getElementById("opensidenav").style.visibility = "visible";
-  }
-
-  fetchNews() {
-    this.news.push({titulo: 'New1', resumo: 'Esta é a new 1', texto: 'Bla, bla', data: '18/05/2018'});
   }
 
   render() {
@@ -55,27 +47,11 @@ class App extends Component {
 
         <div className="app-header">
           <img src={logo} className="app-logo" alt="logo" />
-          <h2>Campus Online</h2>
+          <h2>CAMPUS ONLINE</h2>
         </div>
 
         <div className="app-content">
-          <div className="button" onClick={this.fetchNews()}>
-            Add Fake News
-          </div>
-
-          <div id="newsContainer">
-            {this.news.map(function(item, i) {
-              return (
-                <div key={`new_${i}`} className="new">
-                  <div className='titulo'> {item.titulo} </div>
-                  <div className='resumo'> {item.resumo} </div>
-                  <div className='texto'> {item.texto} </div>
-                  <div className='data'> {item.data} </div>
-                </div>
-              )
-            })}
-          </div>
-          
+          <NewsList/>
         </div>
 
         <footer>
