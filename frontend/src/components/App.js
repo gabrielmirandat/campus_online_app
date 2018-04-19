@@ -46,7 +46,10 @@ class App extends Component {
   }
 
   requestNews () {
-    request('http://localhost:5000/allnews', function (error, response, body) {
+    let url = 'http://localhost:5000/news/' + this.state.date.format("DD-MM-YY"); 
+
+    console.log(url);
+    request(url, function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       console.log('body:', body); // Print the HTML for the Google homepage.
@@ -94,7 +97,7 @@ class App extends Component {
             this.state.calendarOpen && (
               <DatePicker
                 dateFormat="DD/MM/YYYY"
-                minDate={moment("19/05/2018")}
+                minDate={moment("2018-04-18")}
                 selected={this.state.date}
                 onChange={this.updateDate}
                 withPortal
