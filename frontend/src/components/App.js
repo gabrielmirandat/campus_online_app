@@ -5,6 +5,7 @@ import '../style/App.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import request from 'request';
 
 class App extends Component {
 
@@ -45,6 +46,11 @@ class App extends Component {
   }
 
   requestNews () {
+    request('http://localhost:5000/allnews', function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); // Print the HTML for the Google homepage.
+    });
   }
 
   render() {
