@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
+import NewsList from './NewsList'
 import logo from '../fac.png';
 import '../style/App.css';
-import NewsList from './NewsList'
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
 
+    this.state = {date: moment(), calendarOpen: false, };
+
+    this.news = [];
+
     this.openNav = this.openNav.bind(this);
     this.closeNav = this.closeNav.bind(this);
+    this.updateDate = this.updateDate.bind(this);
+    this.toggleCalendar = this.toggleCalendar.bind(this);
+
+    this.requestNews();
   }
 
   openNav() {
@@ -20,6 +31,20 @@ class App extends Component {
   closeNav() {
     document.getElementById("sidenav").style.width = "0";
     document.getElementById("opensidenav").style.visibility = "visible";
+  }
+
+  updateDate(date) {
+    this.setState({date});
+    this.toggleCalendar();
+    this.requestNews();
+  }
+
+  toggleCalendar (e) {
+    e && e.preventDefault()
+    this.setState({calendarOpen: !this.state.calendarOpen})
+  }
+
+  requestNews () {
   }
 
   render() {
@@ -51,6 +76,27 @@ class App extends Component {
         </div>
 
         <div className="app-content">
+          <button
+            className="calendar-button"
+            onClick={this.toggleCalendar}>
+            <h3>
+              {this.state.date.format("DD/MM/YYYY")}
+            </h3>
+          </button>
+          
+          {
+            this.state.calendarOpen && (
+              <DatePicker
+                dateFormat="DD/MM/YYYY"
+                minDate={moment("19/05/2018")}
+                selected={this.state.date}
+                onChange={this.updateDate}
+                withPortal
+                inline 
+              />
+            )
+          }
+          
           <NewsList/>
         </div>
 

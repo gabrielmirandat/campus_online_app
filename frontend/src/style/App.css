@@ -64,19 +64,13 @@ nav .closebtn {
   cursor:pointer;
 }
 
-.button {
-  line-height: 80px;
-  height: 80px;
-  margin: 25px 25px;
-  text-align: center;
-  background-color: #111;
-}
-
-.button a {
-  text-decoration: none;
-  font-size: 25px;
-  color:white;
-  display: block;
+.calendar-button {
+  cursor: pointer;
+  padding: 5px 15px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #216ba5;
+  color: #fff;
 }
 
 footer {
