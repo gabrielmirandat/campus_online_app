@@ -51,7 +51,7 @@ module.exports = (app) => {
           let news1 = {titulo: 'Primeira noticia', 
                        resumo: 'Resumo da primeira noticia', 
                        texto: 'Corpo da primeira notícia', 
-                       data: '16/04/18',
+                       data: '16-04-18',
                        link: 'http://www.google.com'};
           let sql = 'INSERT INTO noticia SET ?';
           // get a connection from the pool
