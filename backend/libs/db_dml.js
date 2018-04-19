@@ -24,6 +24,13 @@ exports.insertValue = (data, callback, successCallback) => {
   });
 };
 
+/*
+data {
+	select: ?,
+	from: ?,
+}
+
+*/
 exports.getValue = function(data, callback, successCallback) {
 	var sql = "SELECT ?? FROM " + pool.escapeId(data.db) + " WHERE ";
 
