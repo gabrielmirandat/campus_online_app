@@ -48,10 +48,10 @@ module.exports = (app) => {
           });
         },
         function(arg, callback) {
-          let news1 = {titulo: 'Primeira noticia', 
-                       resumo: 'Resumo da primeira noticia', 
-                       texto: 'Corpo da primeira notícia', 
-                       data: '18-04-18',
+          let news1 = {titulo: 'Uiaasi', 
+                       resumo: 'Resumo asd', 
+                       texto: 'Texto asd', 
+                       data: '19-04-18',
                        link: 'http://www.google.com'};
           let sql = 'INSERT INTO noticia SET ?';
           // get a connection from the pool

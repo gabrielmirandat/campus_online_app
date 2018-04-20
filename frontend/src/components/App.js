@@ -5,22 +5,25 @@ import '../style/App.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import request from 'request';
+import axios from 'axios';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {date: moment(), calendarOpen: false, };
-
-    this.news = [];
+    this.state = {date: moment(), 
+                  calendarOpen: false, 
+                  newsList: []};
 
     this.openNav = this.openNav.bind(this);
     this.closeNav = this.closeNav.bind(this);
     this.updateDate = this.updateDate.bind(this);
     this.toggleCalendar = this.toggleCalendar.bind(this);
+    this.requestNews = this.requestNews.bind(this);
+  }
 
+  componentDidMount () {
     this.requestNews();
   }
 
@@ -49,15 +52,14 @@ class App extends Component {
   requestNews () {
     let url = 'http://localhost:5000/news/' + this.state.date.format("DD-MM-YY"); 
 
-    console.log(url);
-    request(url, function (error, response, body) {
-      if (error) {
-        alert("Nao tem!");
+    axios.get(url).then(
+      res => {
+        this.setState({newsList: res.data.response});
+      }, 
+      err => {
+        alert("Erro!");
       }
-      console.log('error:', error); // Print the error if one occurred
-      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-      console.log('body:', body); // Print the HTML for the Google homepage.
-    });
+    );
   }
 
   render() {
@@ -85,7 +87,7 @@ class App extends Component {
 
         <div className="app-header">
           <img src={logo} className="app-logo" alt="logo" />
-          <h2>CAMPUS ONLINE</h2>
+          <div className="app-title">CAMPUS ONLINE</div>
         </div>
 
         <div className="app-content">
@@ -110,7 +112,9 @@ class App extends Component {
             )
           }
           
-          <NewsList/>
+          <NewsList
+            newsList = {this.state.newsList}
+          />
         </div>
 
         <footer>

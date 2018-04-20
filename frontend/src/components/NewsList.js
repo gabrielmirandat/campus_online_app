@@ -1,12 +1,13 @@
 import React from 'react';
-import News from './News'
+import NewsItem from './NewsItem'
+import '../style/NewsList.css';
 
-const NewsList = (props) => {
-  
+const NewsList = ({newsList}) => {
+
   return (
-    <ul className="col-md-4 list-group">
-      <News/>
-    </ul>
+    <div className="news-list">
+      {newsList.map((newsItem, index) => <NewsItem newsItem={newsItem} key={index} />)}
+    </div>
   );
 };
 

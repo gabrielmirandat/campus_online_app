@@ -6,7 +6,7 @@ const db_cfg = {};
 if(env == 'local') {
 	db_cfg.host = 'localhost';
 	db_cfg.user = 'root';
-	db_cfg.password = '';
+	db_cfg.password = 'password';
   db_cfg.database = 'campus_online_local';
 }
 // prod
