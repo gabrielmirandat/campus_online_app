@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import News from './News'
+import NewsItem from './NewsItem'
 import testImg from '../icon.png'
+
+import '../style/NewsItem.css';
 
 class NewsList extends Component {
   constructor(props) {
     super(props);
 
     this.news = props.newsList.map( (element, index) => {
-      return new News( null, element.titulo, element.resumo, element.data, element.texto, element.foto, element.link )
+      return new NewsItem( element.titulo, element.resumo, element.data, element.texto, element.foto, element.link )
     });
-    this.news.sort( News.Compare );
+    this.news.sort( NewsItem.Compare );
 
-    this.addNews( new News( null,
+    this.addNews( new NewsItem(
                             "Microsoft anuncia nova logo",
                             "Mudança total de identidade visual",
                             "20/04/2018 - 11h10",
@@ -19,7 +21,7 @@ class NewsList extends Component {
                             <p>Completamente diferente de tudo que já foi feito antes, essa nova identidade está mais minimalista.</p>\
                             <p>A controvérsia foi grande mas designers do mundo inteiro concordam que com certeza representa a nova era na qual a Microsoft está passando.</p>",
                             0, testImg) );
-    this.addNews( new News( null,
+    this.addNews( new NewsItem(
                             "Campus Online agora também em aplicativo",
                             "Novo veículo de comunicação mais fácil para os usuários",
                             "20/04/2018 - 9h30",
@@ -30,7 +32,7 @@ class NewsList extends Component {
 
   addNews( news ) {
     this.news.push( news );
-    this.news.sort( News.compare );
+    this.news.sort( NewsItem.compare );
   }
 
   render() {
