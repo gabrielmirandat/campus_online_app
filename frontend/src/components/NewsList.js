@@ -6,7 +6,11 @@ class NewsList extends Component {
   constructor(props) {
     super(props);
 
-    this.news = [];
+    this.news = props.newsList.map( (element, index) => {
+      return new News( null, element.titulo, element.resumo, element.data, element.texto, element.foto, element.link )
+    });
+    this.news.sort( News.Compare );
+
     this.addNews( new News( null,
                             "Microsoft anuncia nova logo",
                             "Mudança total de identidade visual",
