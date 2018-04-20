@@ -68,7 +68,7 @@ class App extends Component {
         <header>
           <nav id="sidenav">
             <a href="" className="closebtn" onClick={e => {e.preventDefault();this.closeNav()}}>&times;</a>
-            <p> Links do Campus Online<br />
+            <p>Links do Campus Online<br />
             <a href="https://twitter.com/campusitounb" className="twitter">Twitter</a>
             <a href="https://www.instagram.com/campusonline/" className="instagram">Instagram</a>
             <a href="https://www.facebook.com/onlinecampus/" className="facebook">Facebook</a>
@@ -112,9 +112,9 @@ class App extends Component {
             )
           }
           
-          <NewsList
-            newsList = {this.state.newsList}
-          />
+          <NewsList newsList={this.state.newsList}/>
+        </div>
+        <div style={{height: 60 + 'px'}}>
         </div>
 
         <footer>
