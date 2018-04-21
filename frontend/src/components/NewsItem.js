@@ -1,12 +1,14 @@
+import React from 'react';
 import Moment from 'moment';
+import Modal from './Modal';
 
 import '../style/NewsItem.css';
 
 class Media {
   constructor(mediaLink = "") {
-    super();
-
-    this.mediaLink = mediaLink;
+    this.state = {
+      mediaLink: mediaLink
+    };
   }
   render() {
     return("");
@@ -18,7 +20,7 @@ class Imagem extends Media {
     super(mediaLink);
   }
   render() {
-    return( <img src={this.mediaLink} /> );
+    return( <img src={this.state.mediaLink} /> );
   }
 }
 class Video extends Media {
@@ -26,7 +28,7 @@ class Video extends Media {
     super(mediaLink);
   }
   render() {
-    return( <img src={this.mediaLink} /> ); // TODO: Render como video
+    return( <img src={this.state.mediaLink} /> ); // TODO: Render como video
   }
 }
 class Audio extends Media {
@@ -34,48 +36,78 @@ class Audio extends Media {
     super(mediaLink);
   }
   render() {
-    return( <img src={this.mediaLink} /> ); // TODO: Render como audio
+    return( <img src={this.state.mediaLink} /> ); // TODO: Render como audio
   }
 }
 
 class NewsItem {
 
-  constructor ( headline = "", resumo = "", data = "DD/MM/YYYY - HH:mm", texto = "", mediaType = null, mediaLink = null ) {
-    super();
-
+  constructor ( headline = "", autor = "", resumo = "", data = Moment(), texto = "", mediaType = null, mediaLink = null ) {
+    var media;
     switch (mediaType) {
       case 0:
-        this.media = new Imagem(props, mediaLink);
+        media = new Imagem(mediaLink);
         break;
       case 1:
-        this.media = new Video(props, mediaLink);
+        media = new Video(mediaLink);
         break;
       case 2:
-        this.media = new Audio(props, mediaLink);
+        media = new Audio(mediaLink);
         break;
       default:
-        this.media = new Media(props, mediaLink);
+        media = new Media(mediaLink);
         break;
     }
 
-    this.headline = headline;
-    this.resumo = resumo;
-    this.data = data;
-    this.texto = texto;
+    this.state = {
+      media: media,
+      headline: headline,
+      autor: autor,
+      resumo: resumo,
+      data: new Moment(data, "DD/MM/YYYY - HH:mm"),
+      texto: texto,
+      showFull: false
+    };
+
+    this.ShowModal = this.ShowModal.bind(this);
+    this.HideModal = this.HideModal.bind(this);
   }
 
   render(i) {
-    return (
-      <div className="newsItem" key={i}>
-          <div className="media">{this.media.render()}</div>
-          <div className="headline">{this.headline}</div>
+    const modal =  this.state.showFull ? (
+      <Modal>
+        <div id="newsItemFull" onClick={ this.HideModal }>
+          <div className="media">{this.state.media.render()}</div>
+          <div className="headline">{this.state.headline}</div>
           <div className="adtInfo">
-            <div className="resumo">{this.resumo}</div>
-            <div className="timestamp">{this.data}</div>
+            <div className="autor">{this.state.autor}</div>
+            <div className="timestamp">{this.state.data.format("HH[h]mm")}</div>
           </div>
-          <div className="texto" dangerouslySetInnerHTML={{__html: this.texto}}></div>
+          <div className="texto" dangerouslySetInnerHTML={{__html: this.state.texto}}></div>
+        </div>
+      </Modal> ) : null;
+    return (
+      <div className="newsItem" key={i} onClick={ this.ShowModal }>
+        <div className="media">{this.state.media.render()}</div>
+        <div className="headline">{this.state.headline}</div>
+        <div className="adtInfo">
+          <div className="autor">{this.state.autor}</div>
+          <div className="timestamp">{this.state.data.format("HH[h]mm")}</div>
+        </div>
+        <div className="resumo">{this.state.resumo}</div>
+        
+        {modal}
+
       </div>
     );
+  }
+
+  ShowModal() {
+    this.state.showFull = true;
+  }
+
+  HideModal() {
+    this.state.showFull = false;
   }
 
   static compare( a, b ) {
