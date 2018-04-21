@@ -1,5 +1,8 @@
 img {
+	display: flex;
 	position: relative;
 	height: fit-content;
 	max-height: 125px;
+	left: 50%;
+	transform: translateX(-50%);
 }

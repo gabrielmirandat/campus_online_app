@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Moment from 'moment';
 import { Imagem, Video, Audio } from './Media';
 
-// import '../style/LongNews.css';
+import '../style/LongNews.css';
 
 class LongNews extends Component {
 	constructor(props) {
@@ -17,11 +18,13 @@ class LongNews extends Component {
 			linkImagem: props.dados.imagem,
 			linkAudio: props.dados.audio
 		};
+
+		this.fechar = this.fechar.bind(this);
 	}
 
 	render() {
 		return (
-			<div className="longNews">
+			<div className="longNews" onClick={this.fechar}>
 				<div className="headline">{this.state.headline}</div>
 				<div className="adtInfo">
 					<div className="autor">{this.state.autor}</div>
@@ -35,6 +38,13 @@ class LongNews extends Component {
 				<div className="texto" dangerouslySetInnerHTML={{__html: this.state.texto}}></div>
 			</div>
 		);
+	}
+
+	fechar() {
+		let modalRoot = document.getElementById( "modal" );
+
+		modalRoot.setAttribute( "hidden", "" );
+		ReactDOM.render( null, modalRoot);
 	}
 }
 

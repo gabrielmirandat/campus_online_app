@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Moment from 'moment';
 import ShortNews from './ShortNews';
+import LongNews from './LongNews';
+import Modal from './Modal';
 import testImg from '../icon.png'
 
 import '../style/NewsList.css';
@@ -14,6 +17,7 @@ class NewsList extends Component {
 		}
 	
 		this.state.newsList.sort( NewsList.compareNews );
+		this.clicouNoticia = this.clicouNoticia.bind(this);
 
 		this.addNews( {
 			headline: "Microsoft anuncia nova logo",
@@ -39,7 +43,7 @@ class NewsList extends Component {
 				   "<p>Esse aplicativo não precisa ser instalado através de uma loja como aplicativos mais tradicionais, afirmam os estudantes. Basta salvar o site em seu celular e o acesso será idêntico ao de um aplicativo normal.</p>"+
 				   "<p>E o que vocês acharam disso? Promissor? Vocês vão usar? Nós aqui da redação adoramos a ideia e todos os nossos parentes já estão usando!</p>",
 			video: null,
-			imagem: testImg,
+			imagem: null,
 			audio: null
 		} );
 	}
@@ -54,11 +58,18 @@ class NewsList extends Component {
 			<div className="shortNewsList">
 				{this.state.newsList.map( (value, index) => {
 					return (
-						<ShortNews dados={value} key={index} index={index} />
+						<ShortNews dados={value} key={index} index={index} onClick={this.clicouNoticia} />
 					);
 				} )}
 			</div>
 		);
+	}
+
+	clicouNoticia(index){
+		let modalRoot = document.getElementById( "modal" );
+
+		modalRoot.removeAttribute( "hidden" );
+		ReactDOM.render( <LongNews dados={this.state.newsList[index]} />, modalRoot );
 	}
 
 	static compareNews( a, b ) {

@@ -19,12 +19,16 @@ class ShortNews extends Component {
 			linkAudio: props.dados.audio
 		};
 
-		this.onClick = props.onClick ? props.onClick.bind(this) : null;
+		this.callback = {
+			onClick: props.onClick
+		};
+
+		this.meClicou = this.meClicou.bind(this);
 	}
 
 	render() {
 		return (
-			<div className="shortNews" onClick={this.onClick}>
+			<div className="shortNews" onClick={this.meClicou}>
 				<div className="media">
 					<Video link={this.state.linkVideo} />
 					<Imagem link={this.state.linkImagem} />
@@ -38,6 +42,10 @@ class ShortNews extends Component {
 				<div className="resumo">{this.state.resumo}</div>
 			</div>
 		);
+	}
+
+	meClicou() {
+		this.callback.onClick(this.state.index);
 	}
 }
 
