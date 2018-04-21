@@ -112,7 +112,7 @@ class App extends Component {
             )
           }
           
-          <NewsList newsList={this.state.newsList}/>
+          <NewsList newsList={this.state.newsList} />
         </div>
         <div style={{height: 60 + 'px'}}>
         </div>

@@ -1,43 +1,84 @@
 import React, { Component } from 'react';
-import News from './News'
+import ReactDOM from 'react-dom';
+import Moment from 'moment';
+import ShortNews from './ShortNews';
+import LongNews from './LongNews';
+import Modal from './Modal';
 import testImg from '../icon.png'
 
+import '../style/NewsList.css';
+
 class NewsList extends Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.news = props.newsList.map( (element, index) => {
-      return new News( null, element.titulo, element.resumo, element.data, element.texto, element.foto, element.link )
-    });
-    this.news.sort( News.Compare );
+		this.state = {
+			newsList: props.newsList
+		}
+	
+		this.state.newsList.sort( NewsList.compareNews );
+		this.clicouNoticia = this.clicouNoticia.bind(this);
 
-    this.addNews( new News( null,
-                            "Microsoft anuncia nova logo",
-                            "Mudança total de identidade visual",
-                            "20/04/2018 - 11h10",
-                            "<p>De forma completamente inesperada, a Microsoft anunciou uma nova identidade visual.</p>\
-                            <p>Completamente diferente de tudo que já foi feito antes, essa nova identidade está mais minimalista.</p>\
-                            <p>A controvérsia foi grande mas designers do mundo inteiro concordam que com certeza representa a nova era na qual a Microsoft está passando.</p>",
-                            0, testImg) );
-    this.addNews( new News( null,
-                            "Campus Online agora também em aplicativo",
-                            "Novo veículo de comunicação mais fácil para os usuários",
-                            "20/04/2018 - 9h30",
-                            "<p>Os alunos de Jornalismo da Faculdade de Comunicação (FAC) em parceria com alunos de Engenharia e Ciência da Computação do Departamento de Ciência da Computação (CIC) liberaram hoje o acesso ao novo aplicativo para acesso mais rápido às notícias do Campus Online.</p>\
-                            <p>Esse aplicativo não precisa ser instalado através de uma loja como aplicativos mais tradicionais, afirmam os estudantes. Basta salvar o site em seu celular e o acesso será idêntico ao de um aplicativo normal.</p>\
-                            <p>E o que vocês acharam disso? Promissor? Vocês vão usar? Nós aqui da redação adoramos a ideia e todos os nossos parentes já estão usando!</p>") );
-  }
+		this.addNews( {
+			headline: "Microsoft anuncia nova logo",
+			autor: "Fulano da Silva Sousa",
+			data: "20/04/2018 - 11h10",
+			resumo: "Mudança total de identidade visual é de agradar os olhos mas causa polêmica e divide especialistas "+
+					"e usuários. Principal reclamação é que não parece mais se tratar da mesma empresa.",
+			texto: "<p>De forma completamente inesperada, a Microsoft anunciou uma nova identidade visual.</p>"+
+				   "<p>Completamente diferente de tudo que já foi feito antes, essa nova identidade está mais minimalista.</p>"+
+				   "<p>A controvérsia foi grande mas designers do mundo inteiro concordam que com certeza representa a nova era na qual a Microsoft está passando.</p>",
+			video: null,
+			imagem: testImg,
+			audio: null
+		} );
 
-  addNews( news ) {
-    this.news.push( news );
-    this.news.sort( News.compare );
-  }
+		this.addNews( {
+			headline: "Campus Online agora também em aplicativo",
+			autor: "Ciclano Alves de Almeida",
+			data: "20/04/2018 - 9h30",
+			resumo: "Novo veículo de comunicação mais fácil para os usuários é liberado. Com recursos de integração e sem "+
+					"nescessidade de instalação, é esperado que um grande número de pessoas comece a utilizá-lo nas próximas semanas.",
+			texto: "<p>Os alunos de Jornalismo da Faculdade de Comunicação (FAC) em parceria com alunos de Engenharia e Ciência da Computação do Departamento de Ciência da Computação (CIC) liberaram hoje o acesso ao novo aplicativo para acesso mais rápido às notícias do Campus Online.</p>"+
+				   "<p>Esse aplicativo não precisa ser instalado através de uma loja como aplicativos mais tradicionais, afirmam os estudantes. Basta salvar o site em seu celular e o acesso será idêntico ao de um aplicativo normal.</p>"+
+				   "<p>E o que vocês acharam disso? Promissor? Vocês vão usar? Nós aqui da redação adoramos a ideia e todos os nossos parentes já estão usando!</p>",
+			video: null,
+			imagem: null,
+			audio: null
+		} );
+	}
 
-  render() {
-    return(
-      <div className="newsList">{this.news.map( (value, index) => { return value.render(index); } )}</div>
-    );
-  }
+	addNews( news ) {
+		this.state.newsList.push( news );
+		this.state.newsList.sort( NewsList.compareNews );
+	}
+
+	render() {
+		return(
+			<div className="shortNewsList">
+				{this.state.newsList.map( (value, index) => {
+					return (
+						<ShortNews dados={value} key={index} index={index} onClick={this.clicouNoticia} />
+					);
+				} )}
+			</div>
+		);
+	}
+
+	clicouNoticia(index){
+		let modalRoot = document.getElementById( "modal" );
+
+		modalRoot.removeAttribute( "hidden" );
+		ReactDOM.render( <LongNews dados={this.state.newsList[index]} />, modalRoot );
+	}
+
+	static compareNews( a, b ) {
+		var dataa = new Moment(a.data, "DD/MM/YYYY - HH:mm");
+		var datab = new Moment(b.data, "DD/MM/YYYY - HH:mm");
+		if( dataa > datab ) return -1;
+		else if( dataa < datab ) return 1;
+		else return 0;
+	}
 }
 
 export default NewsList;

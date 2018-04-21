@@ -1,0 +1,48 @@
+.shortNews {
+	background-color: #fff;
+	padding: 25px;
+	border-color: #151515;
+	border-width: 0px 0px 1px 0px;
+	border-style: solid;
+}
+.shortNews:hover {
+	background-color: #eee;
+}
+
+.media {
+	max-height: 125px;
+	background-color: #0001;
+	margin-bottom: 5px;
+}
+
+.headline {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.adtInfo {
+	margin-top: 5px;
+	margin-bottom: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.autor {
+	color: #888;
+	font-size: 14px;
+	text-align: left;
+}
+
+.timestamp {
+	color: #BBB;
+	font-size: 12px;
+	min-width: fit-content;
+}
+
+.resumo {
+	text-align: justify;
+	text-align-last: left;
+	line-break: strict;
+	text-indent: 1em;
+}
