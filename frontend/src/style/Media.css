@@ -1,0 +1,5 @@
+img {
+	position: relative;
+	height: fit-content;
+	max-height: 125px;
+}
