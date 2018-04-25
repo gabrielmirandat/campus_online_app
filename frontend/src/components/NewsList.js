@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Moment from 'moment';
-import ShortNews from './ShortNews';
-import LongNews from './LongNews';
-import Modal from './Modal';
+import NewsItem from './NewsItem';
+import NewsDetails from './NewsDetails';
 import testImg from '../icon.png'
 
 import '../style/NewsList.css';
@@ -13,14 +12,13 @@ class NewsList extends Component {
 		super(props);
 
 		this.state = {
-			newsList: props.newsList
+			list: props.list
 		}
-	
-		this.state.newsList.sort( NewsList.compareNews );
-		this.clicouNoticia = this.clicouNoticia.bind(this);
+	}
 
+	componentDidMount () {
 		this.addNews( {
-			headline: "Microsoft anuncia nova logo",
+			titulo: "Microsoft anuncia nova logo",
 			autor: "Fulano da Silva Sousa",
 			data: "20/04/2018 - 11h10",
 			resumo: "Mudança total de identidade visual é de agradar os olhos mas causa polêmica e divide especialistas "+
@@ -34,7 +32,7 @@ class NewsList extends Component {
 		} );
 
 		this.addNews( {
-			headline: "Campus Online agora também em aplicativo",
+			titulo: "Campus Online agora também em aplicativo",
 			autor: "Ciclano Alves de Almeida",
 			data: "20/04/2018 - 9h30",
 			resumo: "Novo veículo de comunicação mais fácil para os usuários é liberado. Com recursos de integração e sem "+
@@ -49,27 +47,8 @@ class NewsList extends Component {
 	}
 
 	addNews( news ) {
-		this.state.newsList.push( news );
-		this.state.newsList.sort( NewsList.compareNews );
-	}
-
-	render() {
-		return(
-			<div className="shortNewsList">
-				{this.state.newsList.map( (value, index) => {
-					return (
-						<ShortNews dados={value} key={index} index={index} onClick={this.clicouNoticia} />
-					);
-				} )}
-			</div>
-		);
-	}
-
-	clicouNoticia(index){
-		let modalRoot = document.getElementById( "modal" );
-
-		modalRoot.removeAttribute( "hidden" );
-		ReactDOM.render( <LongNews dados={this.state.newsList[index]} />, modalRoot );
+		this.state.list.push( news );
+		this.state.list.sort( NewsList.compareNews );
 	}
 
 	static compareNews( a, b ) {
@@ -78,6 +57,18 @@ class NewsList extends Component {
 		if( dataa > datab ) return -1;
 		else if( dataa < datab ) return 1;
 		else return 0;
+	}
+
+	render() {
+		return(
+			<div className="shortNewsList">
+				{this.state.list.map( (listItem, index) => {
+					return (
+						<NewsItem item={listItem} key={index} />
+					);
+				} )}
+			</div>
+		);
 	}
 }
 
