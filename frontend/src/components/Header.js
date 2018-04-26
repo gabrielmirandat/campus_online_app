@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 import logo from '../fac.png';
 import '../style/App.css';
@@ -44,7 +44,7 @@ class Header extends Component {
               <a href="https://issuu.com/campusunb">Issu</a>
             </p>
 
-            <p> <Link to='/addnews'>Adicionar Noticia</Link> </p>
+            <p> <Link to='/addnews'>Add News</Link> </p>
           </nav>
             
           <span id="opensidenav" className="burger" onClick={this.openNav}>&#9776;</span>

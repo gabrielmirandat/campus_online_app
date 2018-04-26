@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Route, Switch} from 'react-router-dom'
 
 import Home from './Home';
@@ -9,7 +9,7 @@ const Router = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route path='/details' component={NewsDetails}/>
+      <Route path='/details' render={props => <NewsDetails {...props} />}/>
       <Route path='/addnews' component={NewsAdd}/>
     </Switch>
   </main>

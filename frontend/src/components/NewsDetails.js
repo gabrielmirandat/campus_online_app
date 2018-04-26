@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Moment from 'moment';
 import { Imagem, Video, Audio } from './Media';
+import {Link} from 'react-router-dom'
 
 import '../style/LongNews.css';
 
@@ -10,46 +11,30 @@ class NewsDetails extends Component {
 		super(props);
 
 		this.state = {
-			titulo: props.item.headline,
-			autor: props.item.autor,
-			data: new Moment(props.item.data, "DD/MM/YYY - HH:mm"),
-			texto: props.item.texto,
-			video: props.item.video,
-			imagem: props.item.imagem,
-			audio: props.item.audio
-		};
+			item: props.history.location.query.item
+		}
 	}
 
-	render() {
+	render () {
 		return (
 			<div className="longNews">
-				<div className="headline">{this.state.titulo}</div>
+				<p> <Link to='/'>Home</Link> </p>
+				<div className="headline">{this.state.item.titulo}</div>
 				<div className="adtInfo">
-					<div className="autor">{this.state.autor}</div>
-					<div className="timestamp">{this.state.data.format("DD/MM/YY - HH[h]mm")}</div>
+					<div className="autor">{this.state.item.autor}</div>
+					
 				</div>
 				<div className="media">
-					<Video link={this.state.video} />
-					<Imagem link={this.state.imagem} />
-					<Audio link={this.state.audio} />
+					<Video link={this.state.item.video} />
+					<Imagem link={this.state.item.imagem} />
+					<Audio link={this.state.item.audio} />
 				</div>
-				<div className="texto" dangerouslySetInnerHTML={{__html: this.state.texto}}></div>
+				<div className="texto" dangerouslySetInnerHTML={{__html: this.state.item.texto}}></div>
+				<div style={{height: 60 + 'px'}}></div>
 			</div>
 		);
 	}
 }
 
-NewsDetails.defaultProps = {
-	dados: {
-		titulo: "titulo",
-		autor: "autor",
-		data: new Moment(),
-		texto: "<p>Lorem Ipsum? Dolor Sit Amet!</p>"+
-			   "<p>Lorem Ipsum Dolor Sit Amet...</p>",
-		video: null,
-		imagem: null,
-		audio: null
-	}
-};
-
 export default NewsDetails;
+

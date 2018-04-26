@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Moment from 'moment';
-import { Imagem, Video, Audio } from './Media';
 import {Redirect} from 'react-router-dom'
 
 import '../style/ShortNews.css';
@@ -10,20 +8,28 @@ class NewsItem extends Component {
 		super(props);
 
 		this.state = {
-			item: props.item
+			item: props.item,
+			key: props.id,
+			redirect: false
 		};
 
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	
+	componentDidMount() {
+		console.log(this.state);
+	}
+
 	handleClick() {
 		this.setState({redirect: true});
 	}
 
 	render() {
 		if (this.state.redirect) {
-			return <Redirect push to="/details" params={{item: this.state.item}} />;
+			return <Redirect to={{ 
+				pathname: `/details/${this.state.key}`, 
+				query: {item: this.state.item}
+			}}/>;
 		}
 		
 		return (
@@ -38,17 +44,5 @@ class NewsItem extends Component {
 		);
 	}
 }
-
-NewsItem.defaultProps = {
-	dados: {
-		titulo: "headline",
-		autor: "autor",
-		data: new Moment(),
-		resumo: "resumo",
-		video: null,
-		imagem: null,
-		audio: null
-	}
-};
 
 export default NewsItem;
