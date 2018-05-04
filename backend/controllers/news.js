@@ -8,14 +8,14 @@ module.exports = (app) => {
         // get a connection from the pool
         pool.getConnection(function(err, connection) {
           if(err) {
-              res.send(JSON.stringify({"status": 500, "error": err, "response": null}));
+              res.send(JSON.stringify({"error": err, "response": null}));
           }
           connection.query(sql, function(err, results) {
             connection.release();
             if(err) {
-              res.send(JSON.stringify({"status": 500, "error": err, "response": null}));
+              res.send(JSON.stringify({"error": err, "response": null}));
             }
-            res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+            res.send(JSON.stringify({"error": null, "response": results}));
           });
         });
       },
@@ -26,17 +26,39 @@ module.exports = (app) => {
         // get a connection from the pool
         pool.getConnection(function(err, connection) {
           if(err) {
-              res.send(JSON.stringify({"status": 500, "error": err, "response": null}));
+              res.send(JSON.stringify({"error": err, "response": null}));
           }
           connection.query(sql, function(err, results) {
             connection.release();
             if(err) {
-              res.send(JSON.stringify({"status": 500, "error": err, "response": null}));
+              res.send(JSON.stringify({"error": err, "response": null}));
             }
-            res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+            res.send(JSON.stringify({"error": null, "response": results}));
+          });
+        });
+      },
+
+      addNews(req, res) {
+        let data = req.body;
+        console.log(data)
+        var sql = 'INSERT INTO noticia SET ?';
+        console.log(sql)
+        // get a connection from the pool
+        pool.getConnection(function(err, connection) {
+          if(err) {
+              res.send(JSON.stringify({"error": err, "response": null}));
+          }
+          connection.query(sql, data, function(err, results) {
+            connection.release();
+            if(err) {
+              res.send(JSON.stringify({"error": err, "response": null}));
+            }
+            res.send(JSON.stringify({"error": null, "response": results}));
           });
         });
       }
+
+
     };
     return newsController;
 }

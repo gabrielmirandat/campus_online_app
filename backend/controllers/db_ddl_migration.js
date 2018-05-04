@@ -28,7 +28,7 @@ module.exports = (app) => {
         },
         function(arg, callback) {
           let sql = 'CREATE TABLE IF NOT EXISTS noticia(id INT AUTO_INCREMENT, titulo VARCHAR(60) NOT NULL, resumo VARCHAR(300) NOT NULL, texto VARCHAR(600) NOT NULL, '+ 
-          'data VARCHAR(8) NOT NULL, link VARCHAR(300) , video BOOLEAN, foto BOOLEAN, audio BOOLEAN, PRIMARY KEY(id))';
+          'data TIMESTAMP NOT NULL DEFAULT "0000-00-00 00:00:00" ON UPDATE CURRENT_TIMESTAMP, link VARCHAR(300), link_video VARCHAR(300), link_foto VARCHAR(300), link_audio VARCHAR(300), PRIMARY KEY(id))';
           // get a connection from the pool
           pool.getConnection(function(err, connection) {
             if(err) {
@@ -50,9 +50,11 @@ module.exports = (app) => {
         function(arg, callback) {
           let news1 = {titulo: 'Uiaasi', 
                        resumo: 'Resumo asd', 
-                       texto: 'Texto asd', 
-                       data: '19-04-18',
-                       link: 'http://www.google.com'};
+                       texto: 'Texto asd',
+                       link: 'http://www.google.com',
+                       link_video: 'http://video',
+                       link_foto: 'http://foto',
+                       link_audio: 'http://audio'};
           let sql = 'INSERT INTO noticia SET ?';
           // get a connection from the pool
           pool.getConnection(function(err, connection) {
