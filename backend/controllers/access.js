@@ -4,8 +4,10 @@ module.exports = (app) => {
   
     const accessController = {
       checkKey(req, res) {
-        let key = req.body;
+        console.log(req.body);
+        let key = req.body.chave;
         var sql = `SELECT 1 FROM acesso WHERE chave = "${key}"`;
+        console.log(sql);
         // get a connection from the pool
         pool.getConnection(function(err, connection) {
           if(err) {
