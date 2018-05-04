@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import NewsAdd from './NewsAdd'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 import '../style/LongNews.css';
 
@@ -10,23 +8,33 @@ class KeyLogin extends Component {
 		super(props);
 
 		this.state = {
-			key: null
+			key: localStorage.getItem("key")
 		}
-  }
+  	}
   
-  componentDidMount() {
-    // if(check service get key login local) valid
-    return <Redirect to={{ 
-      pathname: "/addnews"
-    }}/>;
+  	componentDidMount() {
+		return <Redirect to={{ pathname: "/addnews" }}/>;
+	}
+
+	handleSignIn(key) {
+		localStorage.setItem(key, JSON.stringify(key));
+		this.setState({key});
+		return <Redirect to={{ pathname: "/addnews" }}/>;
 	}
 
 	render () {
 		return (
-      <input type="text" name="fname">Key</input>
+			<div className="key-login">
+				<p> <Link to='/'>Home</Link> </p>
+				<form onSubmit={this.handleSignIn.bind(this)}>
+					<h3>Key</h3>
+					<input type="password" ref="key" placeholder="key" />
+					<input type="submit" value="Login" />
+				</form>
+			</div>
 		);
 	}
 }
 
-export default NewsDetails;
+export default KeyLogin;
 

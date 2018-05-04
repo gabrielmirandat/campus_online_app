@@ -22,14 +22,13 @@ class NewsItem extends Component {
 
 	handleClick() {
 		this.setState({redirect: true});
+		console.log("redirecionando")
+		localStorage.setItem("newsItem", JSON.stringify(this.state.item));
 	}
 
 	render() {
 		if (this.state.redirect) {
-			return <Redirect to={{ 
-				pathname: `/details/${this.state.key}`, 
-				query: {item: this.state.item}
-			}}/>;
+			return <Redirect to={{ pathname: `/details/${this.state.key}`, }}/>;
 		}
 		
 		return (

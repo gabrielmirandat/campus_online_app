@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import Moment from 'moment';
 import { Imagem, Video, Audio } from './Media';
 import {Link} from 'react-router-dom'
 
@@ -11,8 +9,12 @@ class NewsDetails extends Component {
 		super(props);
 
 		this.state = {
-			item: props.history.location.query.item
+			item: localStorage.getItem("newsItem")
 		}
+	}
+
+	componentDidMount () {
+		console.log(this.state.item);
 	}
 
 	render () {
