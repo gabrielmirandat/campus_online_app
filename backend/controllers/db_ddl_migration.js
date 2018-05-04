@@ -22,7 +22,7 @@ module.exports = (app) => {
                 callback(err);
                 return;
               }
-              callback(null, 'Created database with success! ');
+              callback(null, 'Created database campus_online_local with success! ');
             });
           });
         },
@@ -43,7 +43,7 @@ module.exports = (app) => {
                 callback(err);
                 return;
               }
-              callback(null, arg + 'Created table with success! ');
+              callback(null, arg + 'Created table noticia with success! ');
             });
           });
         },
@@ -68,7 +68,48 @@ module.exports = (app) => {
                 callback(err);
                 return;
               }
-              callback(null, arg + 'Added first row with success!');
+              callback(null, arg + 'Added first row to noticia with success!');
+            });
+          });
+        },
+        function(arg, callback) {
+          let sql = 'CREATE TABLE IF NOT EXISTS acesso(chave VARCHAR(6), PRIMARY KEY(chave))';
+          // get a connection from the pool
+          pool.getConnection(function(err, connection) {
+            if(err) {
+              console.log(err);
+              callback(err);
+              return;
+            }
+            connection.query(sql, function(err, res) {
+              connection.release();
+              if(err) {
+                console.log(err);
+                callback(err);
+                return;
+              }
+              callback(null, arg + 'Created table acesso with success! ');
+            });
+          });
+        },
+        function(arg, callback) {
+          let key = {chave: '123456'};
+          let sql = 'INSERT INTO acesso SET ?';
+          // get a connection from the pool
+          pool.getConnection(function(err, connection) {
+            if(err) {
+              console.log(err);
+              callback(err);
+              return;
+            }
+            connection.query(sql, key, function(err, res) {
+              connection.release();
+              if(err) {
+                console.log(err);
+                callback(err);
+                return;
+              }
+              callback(null, arg + 'Added first row to acesso with success!');
             });
           });
         }

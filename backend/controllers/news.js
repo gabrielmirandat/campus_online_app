@@ -1,15 +1,10 @@
 module.exports = (app) => {
     const pool = require('../libs/db_conn');
-    const async = require('async');
     const {getValue} = require('../libs/db_dml');
   
     const newsController = {
-     
-      get(req, res) {
-      },
-
       getAll(req, res) {
-        var sql = "SELECT * FROM noticia";
+        var sql = "SELECT * FROM noticia ORDER BY data";
         // get a connection from the pool
         pool.getConnection(function(err, connection) {
           if(err) {
@@ -26,7 +21,7 @@ module.exports = (app) => {
       },
 
       getByDate(req, res) {
-        var sql = `SELECT * FROM noticia WHERE data = "${req.params.date}"`;
+        var sql = `SELECT * FROM noticia WHERE data = "${req.params.date}" ORDER BY data`;
         console.log(sql)
         // get a connection from the pool
         pool.getConnection(function(err, connection) {
