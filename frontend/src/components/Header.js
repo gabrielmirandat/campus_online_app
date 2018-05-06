@@ -44,7 +44,7 @@ class Header extends Component {
               <a href="https://issuu.com/campusunb">Issu</a>
             </p>
 
-            <p> <Link to='/addnews'>Add News</Link> </p>
+            <p> <Link to='/addnews'>Adicionar notícias</Link> </p>
           </nav>
             
           <span id="opensidenav" className="burger" onClick={this.openNav}>&#9776;</span>
@@ -55,9 +55,9 @@ class Header extends Component {
           <div className="app-title">CAMPUS ONLINE</div>
         </div>
 
-        {/* <footer>
+        <footer>
           <h4>2018 FAC/CIC</h4>
-        </footer> */}
+        </footer>
       </div>
     )
   }

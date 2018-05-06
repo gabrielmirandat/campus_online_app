@@ -9,8 +9,16 @@ class NewsList extends Component {
 		super(props);
 
 		this.state = {
-			list: props.list
+			list: []
 		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({ list: nextProps.list });  
+	}
+
+	componentDidMount(){
+		console.log("NewsList", this.state.list);
 	}
 
 	render() {
@@ -22,6 +30,7 @@ class NewsList extends Component {
 						<NewsItem item={listItem} key={id} id={id} />
 					);
 				} )}
+				<div style={{height: 60 + 'px'}}></div>
 			</div>
 		);
 	}

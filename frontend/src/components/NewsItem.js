@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom'
+import { Imagem, Video, Audio } from './Media';
+import moment from 'moment';
 
 import '../style/ShortNews.css';
 
@@ -10,35 +11,27 @@ class NewsItem extends Component {
 		this.state = {
 			item: props.item,
 			key: props.id,
-			redirect: false
 		};
-
-		this.handleClick = this.handleClick.bind(this);
 	}
 
 	componentDidMount() {
-		console.log(this.state);
-	}
-
-	handleClick() {
-		this.setState({redirect: true});
-		console.log("redirecionando")
-		localStorage.setItem("newsItem", JSON.stringify(this.state.item));
+		console.log("NewsItem", this.state.item);
 	}
 
 	render() {
-		if (this.state.redirect) {
-			return <Redirect to={{ pathname: `/details/${this.state.key}`, }}/>;
-		}
-		
 		return (
-			<div className="shortNews" onClick={this.handleClick}>
+			<div className="shortNews">
 				<div className="headline">{this.state.item.titulo}</div>
 				<div className="adtInfo">
-					<div className="autor">{this.state.item.autor}</div>
-					<div className="timestamp">{this.state.item.data.format("HH[h]mm")}</div>
+					<div className="timestamp"> {moment(this.state.item.data).format("DD/MM/YY - HH:mm:ss")} </div>
 				</div>
-				<div className="resumo">{this.state.item.resumo}</div>
+				<div className="media">
+					<Video link={this.state.item.link_video} />
+					<Imagem link={this.state.item.link_foto} />
+					<Audio link={this.state.item.link_audio} />
+				</div>
+				<div className="texto" dangerouslySetInnerHTML={{__html: this.state.item.texto}}></div>
+				<a className="link" href={this.state.item.link}>visite!</a>
 			</div>
 		);
 	}

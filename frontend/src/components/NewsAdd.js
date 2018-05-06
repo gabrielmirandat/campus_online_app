@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import axios from 'axios';
 
 class NewsAdd extends Component {
@@ -9,7 +9,8 @@ class NewsAdd extends Component {
 		this.state = {
 			key: null,
 			valid: false,
-			item: {}
+			item: {},
+			redirect: false
 		}
 	}
 
@@ -42,13 +43,15 @@ class NewsAdd extends Component {
 		let url = 'http://localhost:5000/addnews/'; 
 
 		axios.post(url, this.state.item).then(
-      res => {
+      		res => {
 				console.log(res.data.response);
+				this.setState({ redirect: true });
 			}, 
-      err => {
-        alert("Erro ao adicionar noticia!");
-      }
-    );
+      		err => {
+        		alert("Erro ao adicionar noticia!");
+			}
+			  
+    	);
 	}
 
 	handleItem = (e) => {
@@ -67,6 +70,10 @@ class NewsAdd extends Component {
 				</div>
 				);
 			} else {
+				if (this.state.redirect) {
+					return <Redirect to='/'/>;
+				}
+
 				return (
 					<div className="news-add">
 						<form onSubmit={this.handleNewsAdd}>
@@ -80,13 +87,14 @@ class NewsAdd extends Component {
 							<h3>Link Externo</h3>
 							<input type="text" placeholder="link" name="link" onChange={this.handleItem}/>
 							<h3>Link Video</h3>
-							<input type="text" placeholder="video" name="video" onChange={this.handleItem}/>
+							<input type="text" placeholder="video" name="link_video" onChange={this.handleItem}/>
 							<h3>Link Foto</h3>
-							<input type="text" placeholder="foto" name="foto" onChange={this.handleItem}/>
+							<input type="text" placeholder="foto" name="link_foto" onChange={this.handleItem}/>
 							<h3>Link Audio</h3>
-							<input type="text" placeholder="audio" name="audio" onChange={this.handleItem}/>
+							<input type="text" placeholder="audio" name="link_audio" onChange={this.handleItem}/>
 							<button type="submit"> Adicionar </button>
 						</form>
+						<div style={{height: 120 + 'px'}}></div>
 					</div>
 				);
 			}
