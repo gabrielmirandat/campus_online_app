@@ -30,7 +30,7 @@ class NewsList extends Component {
 						<NewsItem item={listItem} key={id} id={id} />
 					);
 				} )}
-				<div style={{height: 60 + 'px'}}></div>
+				<div style={{height: 120 + 'px'}}></div>
 			</div>
 		);
 	}
