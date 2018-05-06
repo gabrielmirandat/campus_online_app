@@ -28,7 +28,7 @@ module.exports = (app) => {
         },
         function(arg, callback) {
           let sql = 'CREATE TABLE IF NOT EXISTS noticia(id INT AUTO_INCREMENT, titulo VARCHAR(60) NOT NULL, resumo VARCHAR(300) NOT NULL, texto VARCHAR(600) NOT NULL, '+ 
-          'data TIMESTAMP NOT NULL DEFAULT "0000-00-00 00:00:00" ON UPDATE CURRENT_TIMESTAMP, link VARCHAR(300), link_video VARCHAR(300), link_foto VARCHAR(300), link_audio VARCHAR(300), PRIMARY KEY(id))';
+          'data TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, link VARCHAR(300), link_video VARCHAR(300), link_foto VARCHAR(300), link_audio VARCHAR(300), PRIMARY KEY(id))';
           // get a connection from the pool
           pool.getConnection(function(err, connection) {
             if(err) {
