@@ -20,8 +20,29 @@ module.exports = (app) => {
         });
       },
 
+      // date formatado como 2018-05-10 (ano-mes-dia)
       getByDate(req, res) {
-        var sql = `SELECT * FROM noticia WHERE data = "${req.params.date}" ORDER BY data`;
+        var sql = `SELECT * FROM noticia WHERE DATE(data) = "${req.params.date}" ORDER BY data DESC`;
+        console.log(sql)
+        // get a connection from the pool
+        pool.getConnection(function(err, connection) {
+          if(err) {
+              res.send(JSON.stringify({"error": err, "response": null}));
+          }
+          connection.query(sql, function(err, results) {
+            connection.release();
+            if(err) {
+              res.send(JSON.stringify({"error": err, "response": null}));
+            }
+            res.send(JSON.stringify({"error": null, "response": results}));
+          });
+        });
+      },
+
+      // date formatado como 2018-05-10 (ano-mes-dia)
+      get20ByInitialDate(req, res){
+        var sql = `SELECT * FROM noticia WHERE DATE(data) <= "${req.params.date}"
+        ORDER BY data DESC LIMIT 20`;
         console.log(sql)
         // get a connection from the pool
         pool.getConnection(function(err, connection) {

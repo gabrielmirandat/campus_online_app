@@ -48,13 +48,13 @@ module.exports = (app) => {
           });
         },
         function(arg, callback) {
-          let news1 = {titulo: 'Uiaasi', 
-                       resumo: 'Resumo asd', 
-                       texto: 'Texto asd',
-                       link: 'http://www.google.com',
-                       link_video: 'http://video',
-                       link_foto: 'http://foto',
-                       link_audio: 'http://audio'};
+          let news1 = {titulo: 'Titulo da noticia de teste', 
+                       resumo: 'Resumo da noticia de teste', 
+                       texto: 'Texto da noticia de teste',
+                       link: 'https://www.metropoles.com/colunas-blogs/grande-angular/salario-de-servidor-e-depositado-e-nao-aparece-na-conta-brb-explica',
+                       link_video: 'https://www.youtube.com/embed/tgbNymZ7vqY',
+                       link_foto: 'https://i.imgur.com/TmtyMsp.jpg',
+                       link_audio: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/34019569&amp;color=0066cc'};
           let sql = 'INSERT INTO noticia SET ?';
           // get a connection from the pool
           pool.getConnection(function(err, connection) {

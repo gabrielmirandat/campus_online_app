@@ -5,5 +5,6 @@ module.exports = (app) => {
   app.get('/allnews', news.getAll)
   app.post('/addnews', news.addNews)
   app.get('/news/:date', news.getByDate)
+  app.get('/news/20/:date', news.get20ByInitialDate)
   app.post('/access', access.checkKey)
   }

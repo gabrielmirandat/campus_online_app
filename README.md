@@ -6,7 +6,10 @@ Trabalho para a disciplina Desenvolvimento de Aplicativos 2018/1
 
 ## FAZENDO
 
-[Miranda] Página de adicionar noticia, assim como rota com chave
-[] Adicionar APIS do youtube, audio
-[] Integrar no Heroku
+[Miranda] Página de adicionar noticia, assim como rota com chave \
+[] Adicionar APIS do youtube, audio \
+[] Integrar no Heroku \
 [] Integrar no servidor da FAC
+
+## V2
+- Adicionar autor no modelo
