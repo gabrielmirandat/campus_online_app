@@ -2,7 +2,7 @@
   "name": "campus_server",
   "version": "1.0.0",
   "description": "Backend campus online",
-  "main": "app.js",
+  "main": "campus_app_back.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

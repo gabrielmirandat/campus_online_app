@@ -1,7 +1,8 @@
 {
   "name": "campus_online",
+  "homepage": "http://www.campus.fac.unb.br/app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "ajv": "^6.4.0",
     "axios": "^0.18.0",
