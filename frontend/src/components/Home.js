@@ -38,7 +38,7 @@ class Home extends Component {
 
 		// this.addNews( {
     //   data: moment('02/05/2018', 'DD/MM/YYYY'),
-    //   titulo: "Campus Online agora também em aplicativo",
+    //   titulo: "Doação de sangue HUB",
 		// 	texto: "<p>Começa hoje a campanha de doação de sangue do Hospital Universitário de Brasília (HUB). Este ano, foi criada uma gincana para estimular a comunidade acadêmica a doar sangue e os vencedores vão receber vale-prêmios de até 250 reais.",
     //   link: "#",
     //   link_video: null,
