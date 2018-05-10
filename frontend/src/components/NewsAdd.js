@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom'
 import axios from 'axios';
 
+import '../style/NewsAdd.css';
+
 class NewsAdd extends Component {
 	constructor(props) {
 		super(props);
@@ -63,7 +65,7 @@ class NewsAdd extends Component {
 			if (!this.state.valid) {
 				return (
 					<div className="key-login">
-						<p> <Link to='/'>Home</Link> </p>
+						<p> <Link className="btn" to='/'>Home</Link> </p>
 						<h3>Chave de Acesso</h3>
 						<input type="password" placeholder="chave" onChange={(e) => {this.setState({key: e.target.value})}}/>
 						<button onClick={this.handleSignIn.bind(this)}> Acessar </button>
@@ -77,22 +79,24 @@ class NewsAdd extends Component {
 				return (
 					<div className="news-add">
 						<form onSubmit={this.handleNewsAdd}>
-							<p> <Link to='/'>Home</Link> </p>
+							<p> <Link className="btn" to='/'>Home</Link> </p>
 							<h3>Titulo</h3>
-							<input type="text" placeholder="titulo" name="titulo" onChange={this.handleItem}/>
-							<h3>Resumo</h3>
-							<textarea rows="4" cols="50" placeholder="resumo" name="resumo" onChange={this.handleItem}/>
+							<input type="text" placeholder="Título da notícia" name="titulo" onChange={this.handleItem}/>
+							<h3 hidden>Resumo</h3>
+							<textarea hidden rows="4" cols="50" placeholder="resumo" name="resumo" onChange={this.handleItem}/>
 							<h3>Texto</h3>
-							<textarea rows="4" cols="50" placeholder="texto" name="texto" onChange={this.handleItem}/>
+							<textarea rows="4" cols="50" placeholder="Texto da notícia" name="texto" onChange={this.handleItem}/>
 							<h3>Link Externo</h3>
-							<input type="text" placeholder="link" name="link" onChange={this.handleItem}/>
+							<input type="text" placeholder="Link para leia mais" name="link" onChange={this.handleItem}/>
 							<h3>Link Video</h3>
-							<input type="text" placeholder="video" name="link_video" onChange={this.handleItem}/>
+							<input type="text" placeholder="Vídeo" name="link_video" onChange={this.handleItem}/>
 							<h3>Link Foto</h3>
-							<input type="text" placeholder="foto" name="link_foto" onChange={this.handleItem}/>
+							<input type="text" placeholder="Foto" name="link_foto" onChange={this.handleItem}/>
 							<h3>Link Audio</h3>
-							<input type="text" placeholder="audio" name="link_audio" onChange={this.handleItem}/>
-							<button type="submit"> Adicionar </button>
+							<input type="text" placeholder="Áudio" name="link_audio" onChange={this.handleItem}/>
+							<p>
+							<button type="submit">Adicionar</button>
+							</p>
 						</form>
 						<div style={{height: 120 + 'px'}}></div>
 					</div>

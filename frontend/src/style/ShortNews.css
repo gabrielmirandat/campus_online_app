@@ -5,19 +5,24 @@
 	border-width: 0px 0px 1px 0px;
 	border-style: solid;
 }
-.shortNews:hover {
+
+/* .shortNews:hover {
 	background-color: #eee;
-}
+} */
 
 .media {
-	max-height: 125px;
+	height: fit-content;
+	/* max-height: 125px; */
 	background-color: #0001;
 	margin-bottom: 5px;
+	display: flex;
+	justify-content: center;
 }
 
 .headline {
 	font-size: 20px;
 	font-weight: bold;
+	color: #b5202e;
 }
 
 .adtInfo {
@@ -45,4 +50,21 @@
 	text-align-last: left;
 	line-break: strict;
 	text-indent: 1em;
+}
+
+.texto {
+	text-align: justify;
+	text-align-last: left;
+	line-break: strict;
+	text-indent: 1em;
+}
+
+.link {
+	background-color: #f9c19a;
+	border-radius: 5px;
+	padding: 7px;
+	font-weight: bold;
+	color: #6c0318;
+	text-decoration: none;
+	font-size: 80%;
 }

@@ -27,11 +27,11 @@ class NewsItem extends Component {
 				</div>
 				<div className="media">
 					<Video link={this.state.item.link_video} />
-					<Imagem link={this.state.item.link_foto} />
+					<Imagem link={this.state.item.link_imagem} />
 					<Audio link={this.state.item.link_audio} />
 				</div>
 				<div className="texto" dangerouslySetInnerHTML={{__html: this.state.item.texto}}></div>
-				<a className="link" href={this.state.item.link}>visite!</a>
+				{this.state.item.link && <a className="link" href={this.state.item.link}>Leia mais...</a>}
 			</div>
 		);
 	}

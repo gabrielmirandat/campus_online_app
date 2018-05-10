@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 
-import logo from '../fac.png';
+import logo from '../Logo-Campus.png';
 import '../style/App.css';
 
 class Header extends Component {
@@ -14,12 +14,12 @@ class Header extends Component {
   }
 
   openNav() {
-    document.getElementById("sidenav").style.width = "250px";
+    document.getElementById("sidenav").style.transform = "translateX(0px)";
     document.getElementById("opensidenav").style.visibility = "hidden";
   }
 
   closeNav() {
-    document.getElementById("sidenav").style.width = "0";
+    document.getElementById("sidenav").style.transform = "translateX(-250px)";
     document.getElementById("opensidenav").style.visibility = "visible";
   }
 
@@ -31,20 +31,20 @@ class Header extends Component {
             <a href="" className="closebtn" onClick={e => {e.preventDefault();this.closeNav()}}>&times;</a>
             
             <p>Links do Campus Online<br />
-              <a href="https://twitter.com/campusitounb" className="twitter">Twitter</a>
-              <a href="https://www.instagram.com/campusonline/" className="instagram">Instagram</a>
-              <a href="https://www.facebook.com/onlinecampus/" className="facebook">Facebook</a>
+              <a href="https://twitter.com/campusitounb" className="twitter" onClick={this.closeNav}>Twitter</a>
+              <a href="https://www.instagram.com/campusonline/" className="instagram" onClick={this.closeNav}>Instagram</a>
+              <a href="https://www.facebook.com/onlinecampus/" className="facebook" onClick={this.closeNav}>Facebook</a>
             </p>
             
             <p> Links da FAC<br />
-              <a href="http://campus.fac.unb.br/">Site</a>
-              <a href="https://twitter.com/fac_unb">Twitter</a>
-              <a href="https://www.facebook.com/faculdadedecomunicacao/">Facebook</a>
-              <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw">Youtube</a>
-              <a href="https://issuu.com/campusunb">Issu</a>
+              <a href="http://campus.fac.unb.br/" onClick={this.closeNav}>Site</a>
+              <a href="https://twitter.com/fac_unb" onClick={this.closeNav}>Twitter</a>
+              <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={this.closeNav}>Facebook</a>
+              <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={this.closeNav}>Youtube</a>
+              <a href="https://issuu.com/campusunb" onClick={this.closeNav}>Issu</a>
             </p>
-
-            <p> <Link to='/addnews'>Adicionar notícias</Link> </p>
+            <br/><br/>
+            <p> <Link to='/addnews' onClick={this.closeNav}>Adicionar notícias</Link> </p>
           </nav>
             
           <span id="opensidenav" className="burger" onClick={this.openNav}>&#9776;</span>
@@ -52,7 +52,6 @@ class Header extends Component {
 
         <div className="app-header">
           <img src={logo} className="app-logo" alt="logo" />
-          <div className="app-title">CAMPUS ONLINE</div>
         </div>
 
         <footer>
