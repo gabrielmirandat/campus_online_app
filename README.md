@@ -80,6 +80,6 @@
 
 
 [www-badge]: https://img.shields.io/badge/netlify-online-brightgreen.svg
-[www-url]: https://ponto.netlify.com
-[admin-badge]: https://img.shields.io/badge/❖-admin-00C7B7.svg?colorA=00C7B7
-[admin-url]: https://app.netlify.com/sites/ponto/overview
+[www-url]: https://campus.netlify.com
+[admin-badge]: https://img.shields.io/badge/❖-cms-00C7B7.svg?colorA=00C7B7
+[admin-url]: https://campus.netlify.com/static/admin
