@@ -1,18 +1,20 @@
 .app {
   text-align: center;
+  --color-0: #560f03;
+  --color-1: #6c0318;
+  --color-2: #b5202e;
+  --color-3: #ff9000;
+  --color-4: #f9c19a;
 }
 
 .app-header {
-  background-color: #222;
-  height: 150px;
+  height: fit-content;
   width: 100%;
   color: white;
 }
 
 .app-logo {
-  /* animation: app-logo-spin infinite 20s linear; */
-  height: 80px;
-  margin-top: 20px;
+  width: 100%;
 }
 
 .app-title {
@@ -20,28 +22,33 @@
   font-weight: bold;
 }
 
-@keyframes app-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.burguer {
+  color: #560f03;
+}
+
+#calendar-region {
+  display: flex;
+  justify-content: center;
 }
 
 nav {
   height: 100%;
-  width: 0;
+  width: 250px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #6c0318;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  transform: translateX(-250px);
 }
 
 nav p {
   text-decoration: none;
   font-size: 20px;
-  color: #EEE;
+  color: #818181;
   display: block;
 }
 
@@ -49,7 +56,7 @@ nav a {
   padding-bottom: 5px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #f9c19a;
   display: block;
   transition: 0.3s;
 }
@@ -73,10 +80,10 @@ nav .closebtn {
 
 .calendar-button {
   padding: 5px;
-  margin:5px;
+  margin: 5px;
   border: 0;
   border-radius: 4px;
-  background-color: #216ba5;
+  background-color: #560f03;
   color: #fff;
 }
 
@@ -85,7 +92,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #222;
+  background-color: #560f03;
   color: white;
   text-align: left;
   padding-left: 5px;

@@ -13,7 +13,7 @@ class Imagem extends Component {
 	}
 
 	render() {
-		return this.state.link ? ( <img src={this.state.link} alt={this.state.alt} /> ) : null;
+		return this.state.link ? ( <img className="newsImg" src={this.state.link} alt={this.state.alt} /> ) : null;
 	}
 }
 
@@ -28,7 +28,7 @@ class Video extends Component {
 	}
 
 	render() {
-		return this.state.link ? ( <iframe width="420" height="345" src={this.state.link}>
+		return this.state.link ? ( <iframe className="newsVideo" src={this.state.link}>
 </iframe> ) : null; // TODO: Render como video
 	}
 }
@@ -44,7 +44,7 @@ class Audio extends Component {
 	}
 
 	render() {
-		return this.state.link ? ( <iframe width="100%" height="166" scrolling="no" frameborder="no" src={this.state.link}></iframe> ) : null; // TODO: Render como audio
+		return this.state.link ? ( <iframe className="newsAudio" scrolling="no" frameborder="no" src={this.state.link}></iframe> ) : null; // TODO: Render como audio
 	}
 }
 
