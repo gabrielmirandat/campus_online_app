@@ -14,7 +14,7 @@ class NewsList extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({ list: nextProps.list });  
+		this.setState({ list: nextProps.list });
 	}
 
 	componentDidMount(){

@@ -26,32 +26,23 @@ class Home extends Component {
   componentWillMount () {
     this.requestNews();
 
-		// this.addNews( {
-    //   data: moment(),
-    //   titulo: "Microsoft anuncia nova logo",
-		// 	resumo: "Mudança total de identidade visual é de agradar os olhos mas causa polêmica e divide especialistas "+
-		// 			"e usuários. Principal reclamação é que não parece mais se tratar da mesma empresa.",
-		// 	texto: "<p>De forma completamente inesperada, a Microsoft anunciou uma nova identidade visual.</p>"+
-		// 		   "<p>Completamente diferente de tudo que já foi feito antes, essa nova identidade está mais minimalista.</p>"+
-		// 		   "<p>A controvérsia foi grande mas designers do mundo inteiro concordam que com certeza representa a nova era na qual a Microsoft está passando.</p>",
+    // this.addNews( {
+    //   data: moment('02/05/2018', 'DD/MM/YYYY'),
+    //   titulo: "Assembléia geral dos estudantes",
+		// 	texto: "<p>O DCE Honestino Guimarães convoca todos os estudantes da UnB a participarem da assembléia geral que tem como pauta o indicativo de greve estudantil. A reunião vai acontecer hoje ao meio-dia no Ceubinho.</p>",
     //   link: null,
     //   link_video: null,
-		// 	link_imagem: null,
+		// 	link_imagem: "https://i.imgur.com/0290eG5.jpg",
 		// 	link_audio: null
 		// } );
 
 		// this.addNews( {
-    //   data: moment(),
-    //   titulo: "Campus Online agora também em aplicativo",
-		// 	autor: "Ciclano Alves de Almeida",
-		// 	resumo: "Novo veículo de comunicação mais fácil para os usuários é liberado. Com recursos de integração e sem "+
-		// 			"nescessidade de instalação, é esperado que um grande número de pessoas comece a utilizá-lo nas próximas semanas.",
-		// 	texto: "<p>Os alunos de Jornalismo da Faculdade de Comunicação (FAC) em parceria com alunos de Engenharia e Ciência da Computação do Departamento de Ciência da Computação (CIC) liberaram hoje o acesso ao novo aplicativo para acesso mais rápido às notícias do Campus Online.</p>"+
-		// 		   "<p>Esse aplicativo não precisa ser instalado através de uma loja como aplicativos mais tradicionais, afirmam os estudantes. Basta salvar o site em seu celular e o acesso será idêntico ao de um aplicativo normal.</p>"+
-		// 		   "<p>E o que vocês acharam disso? Promissor? Vocês vão usar? Nós aqui da redação adoramos a ideia e todos os nossos parentes já estão usando!</p>",
-    //   link: null,
+    //   data: moment('02/05/2018', 'DD/MM/YYYY'),
+    //   titulo: "Doação de sangue HUB",
+		// 	texto: "<p>Começa hoje a campanha de doação de sangue do Hospital Universitário de Brasília (HUB). Este ano, foi criada uma gincana para estimular a comunidade acadêmica a doar sangue e os vencedores vão receber vale-prêmios de até 250 reais.",
+    //   link: "#",
     //   link_video: null,
-    //   link_imagem: null,
+    //   link_imagem: "https://i.imgur.com/B2QALtj.jpg",
     //   link_audio: null
 		// } );
 	}
@@ -90,6 +81,7 @@ class Home extends Component {
     return (
       <div>
         <div className="app-content">
+        <div id="calendar-region">
           <button
             className="calendar-button"
             onClick={this.toggleCalendar}>
@@ -97,7 +89,8 @@ class Home extends Component {
               {this.state.date.format("DD/MM/YYYY")}
             </h3>
           </button>
-          
+        </div>
+
           <NewsList list={this.state.newsList} />
           
           {
