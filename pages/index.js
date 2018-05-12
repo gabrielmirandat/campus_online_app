@@ -18,20 +18,17 @@ const Index = ({ posts }) => {
 			</Head>
 
 			<Layout>
-				<h2 style={{fontSize: '3rem', lineHeight: '3.5rem', marginTop: '6rem'}}>Última matéria</h2>
-				{postList.slice(0,1).map((post, index) =>
-					<PostCard {...post}/>
-				)}
-
-				<h2 style={{fontSize: '3rem', lineHeight: '3.5rem', marginTop: '6rem'}}>Matéria mais recentes</h2>
-				<Row style={{alignItems: 'stretch'}}>
-					{postList.slice(1,3).map((post, index) =>
-						<Cell key={index} sm={6}><PostCard {...post}/></Cell>
-					)}
-				</Row>
+				<h2 style={{fontSize: '3rem', lineHeight: '3.5rem', marginTop: '6rem', marginBottom: '2rem'}}>Matérias</h2>
+				{postList &&
+					<div style={{margin: '-6px -6px'}}>
+						{postList.slice(0,3).map((post, index) =>
+							<PostCard {...post}/>
+						)}
+					</div>
+				}
 
 				<Link href='/posts'>
-					<a href='/posts' style={{fontSize: '1.5rem', lineHeight: '2rem', marginTop: '3rem', color: 'currentColor'}}>Ver todas as {postList.length} matérias</a></Link>
+					<a href='/posts' style={{display: 'block', fontSize: '1.5rem', lineHeight: '2rem', marginTop: '3rem', color: 'currentColor'}}>Ver todas as {postList.length} matérias</a></Link>
 			</Layout>
 		</main>
 	)

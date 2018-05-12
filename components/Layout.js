@@ -8,7 +8,7 @@ import {colors} from '../utils/variables'
 const Layout = props => (
 	<div style={{display: 'flex', flexDirection: 'column', height: '100vh', color:colors.base}}>
 		<Navbar style={{flex: 'none'}}/>
-		<main style={{flex: '1 0 auto', width: '100%', background: 'white', paddingBottom: '8rem'}}>
+		<main style={{flex: '1 0 auto', width: '100%', background: colors.base03, paddingBottom: '8rem'}}>
 			<Container {...props}/>
 		</main>
 		<Footer style={{flex: 'none'}}/>

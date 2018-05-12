@@ -6,7 +6,7 @@ import {colors} from '../utils/variables'
 import LogoIcon from './LogoIcon'
 
 const Wrapper = styled.nav`
-	background: ${colors.base03};
+	background: white;
 `
 
 const Flex = styled.div`
@@ -51,12 +51,12 @@ const Navigation = styled.div`
 		top: 0;
 		height: 3.75rem;
 		width: 1.25rem;
-		background: linear-gradient(90deg, ${colors.base03}, rgba(249,249,250,0));
+		background: linear-gradient(90deg, white, rgba(255,2550,255,0));
 	}
 	&::after{
 		left: initial;
 		right: 0;
-		background: linear-gradient(-90deg, ${colors.base03}, rgba(249,249,250,0));
+		background: linear-gradient(-90deg, white, rgba(255,255,255,0));
 	}
 `
 

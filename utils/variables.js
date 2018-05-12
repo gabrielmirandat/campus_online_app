@@ -42,6 +42,6 @@ export const colors = {
 // ----------------------------------------------------
 
 export const fonts = {
-	sans: '-apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-	serif: 'Arnhem, Georgia, Times, serif',
+	text: '"SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+	display: '"SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif',
 }

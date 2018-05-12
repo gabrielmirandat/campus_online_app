@@ -7,8 +7,9 @@ import {colors} from '../utils/variables'
 const Wrapper = styled.footer`
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	background: ${colors.base03};
+	background: ${colors.base};
 	min-height: 12rem;
+	color: white;
 	@media print {
 		display: none;
 	}
@@ -25,13 +26,13 @@ const Logo = styled.a`
 	display: block;
 	margin-right: 3rem;
 	height: 1.5rem;
-	color: ${colors.base22};
+	color: ${colors.base88};
 	svg {
 		height: 100%;
 		width: auto;
 	}
 	&:hover, &:focus, &:active{
-		color: ${colors.base44};
+		color: ${colors.base3};
 	}
 `
 
@@ -43,7 +44,7 @@ const Links = styled.ul`
 `
 
 const Anchor = styled.a`
-	color: ${colors.base44};
+	color: ${colors.base66};
 	text-decoration: none;
 	display: block;
 	font-size: 0.75rem;
@@ -52,7 +53,7 @@ const Anchor = styled.a`
 	letter-spacing: 0.5px;
 	padding: 1rem 0.75rem;
 	:hover, :focus, :active {
-		color: ${colors.base66};
+		color: ${colors.base03};
 		text-decoration: underline;
 	}
 `

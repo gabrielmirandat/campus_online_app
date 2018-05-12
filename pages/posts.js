@@ -43,7 +43,7 @@ const Posts = ({ posts }) => {
 		distance: 64,
 		maxPatternLength: 16,
 		minMatchCharLength: 2,
-		keys: ['data.title', 'data.tag']
+		keys: ['data.title', 'data.tags']
 	}
 
 	return (
@@ -60,13 +60,13 @@ const Posts = ({ posts }) => {
 			<label htmlFor='search'>Search:<InputFilter debounceTime={200} /></label>
 			{postList &&
 				<Fragment>
-					<Row>
-						<FilterResults items={postList} fuseConfig={fuseConfig}>
-								{filteredItems =>
-									filteredItems.map((post, index) => <Cell key={index} sm={6} lg={4} xg={3}><PostCard {...post}/></Cell>)
-								}
-						</FilterResults>
-					</Row>
+					<FilterResults items={postList} fuseConfig={fuseConfig}>
+						{filteredItems =>
+							filteredItems.map((post, index) =>
+								<PostCard {...post}/>
+							)
+						}
+					</FilterResults>
 				</Fragment>
 			}
 		</Layout>
