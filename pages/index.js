@@ -5,7 +5,8 @@ import Layout from '../components/Layout'
 import withPosts, { sortByDate } from 'nextein/posts'
 import PostCard from '../components/PostCard'
 import { Content } from 'nextein/post'
-import { Row, Cell } from '../components/Grid'
+// import { Row, Cell } from '../components/Grid'
+import { CardRow } from '../components/CardGrid'
 
 
 
@@ -20,11 +21,14 @@ const Index = ({ posts }) => {
 			<Layout>
 				<h2 style={{fontSize: '3rem', lineHeight: '3.5rem', marginTop: '6rem', marginBottom: '2rem'}}>Matérias</h2>
 				{postList &&
-					<div style={{margin: '-6px -6px'}}>
-						{postList.slice(0,3).map((post, index) =>
-							<PostCard {...post}/>
+					<CardRow>
+						{postList.slice(0,1).map((post, index) =>
+							<PostCard key={index} index={index} size={1} {...post}/>
 						)}
-					</div>
+						{postList.slice(1,3).map((post, index) =>
+							<PostCard key={index} index={index} size={0} {...post}/>
+						)}
+					</CardRow>
 				}
 
 				<Link href='/posts'>

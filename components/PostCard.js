@@ -1,6 +1,7 @@
 import Link from 'nextein/link'
 import styled from 'styled-components'
 import { Content } from 'nextein/post'
+import { CardCell } from './CardGrid'
 import { colors, fonts } from '../utils/variables'
 import { above } from '../utils/responsive'
 
@@ -11,13 +12,10 @@ const maxHeight = '16rem'
 
 
 const Wrapper = styled.article`
-	display: flex-wrap;
-	width: 50%;
 	transition: padding .15s cubic-bezier(.4,0,.2,1),margin .15s cubic-bezier(.4,0,.2,1),box-shadow .15s cubic-bezier(.4,0,.2,1);
 	z-index: 0;
-	flex: 1;
-	flex-basis: 1 100%;
 	width: 100%;
+	flex: 1;
 	position: relative;
 	${above.md`
 		&:hover, &:focus, &:active{
@@ -79,6 +77,7 @@ const ImageWrapper = styled.figure`
 	${above.xg`
 		flex: 9;
 	`}
+	flex: ${p => !p.size && `3 !important`}
 `
 
 const Image = styled.img`
@@ -148,38 +147,40 @@ const Tag = styled.div`
 `
 
 
-const PostCard = ({ data, content, excerpt=true }) => {
+const PostCard = ({ data, content, excerpt=true, index, size }) => {
 	const { url, title, date, _entry, tag, page = 'post' } = data
 	return (
-		<Wrapper>
-			<Padding>
-				<Inset>
-					<PostContent>
-						{ data.thumbnail &&
-							<ImageWrapper>
-								<Image src={data.thumbnail}/>
-							</ImageWrapper>
-						}
-						<Text>
-							<Meta>
-								{tag &&
-									<Tags>
-										{tag.map(tag =>
-										<Tag key={`tag-${tag}`}>{` ${tag}`}</Tag>
-										)}
-									</Tags>
-								}
-								<PostDate>{`${new Date(date).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}`}</PostDate>
-							</Meta>
-							<Title>{title}</Title>
-						</Text>
-					</PostContent>
-				</Inset>
-			</Padding>
-			<Link href={url}>
-				<Anchor href={url}/>
-			</Link>
-		</Wrapper>
+		<CardCell xs={12} md={size?12:6}>
+			<Wrapper>
+				<Padding>
+					<Inset>
+						<PostContent>
+							{ data.thumbnail &&
+								<ImageWrapper size={size}>
+									<Image src={data.thumbnail}/>
+								</ImageWrapper>
+							}
+							<Text>
+								<Meta>
+									{tag &&
+										<Tags>
+											{tag.map(tag =>
+											<Tag key={`tag-${tag}`}>{` ${tag}`}</Tag>
+											)}
+										</Tags>
+									}
+									<PostDate>{`${new Date(date).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}`}</PostDate>
+								</Meta>
+								<Title>{title}</Title>
+							</Text>
+						</PostContent>
+					</Inset>
+				</Padding>
+				<Link href={url}>
+					<Anchor href={url}/>
+				</Link>
+			</Wrapper>
+		</CardCell>
 	)
 }
 
