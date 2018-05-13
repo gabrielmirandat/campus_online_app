@@ -49,11 +49,11 @@ const Inset = styled.div`
 const PostContent = styled.div`
 	width: 100%;
 	position: relative;
-	min-height: ${minHeight};
 	${above.md`
 		display: flex;
 		flex-direction: row-reverse;
 		align-items: stretch;
+		min-height: ${minHeight};
 	`}
 `
 
@@ -96,7 +96,10 @@ const Image = styled.img`
 
 const Text = styled.div`
 	flex: 2;
-	padding: 2rem 1.875rem 3.5rem;
+	padding: 1.5rem 1rem 2rem;
+	${above.md`
+		padding: 2rem 1.875rem 3.5rem;
+	`}
 `
 
 const Meta = styled.div`
@@ -129,12 +132,13 @@ const Title = styled.div`
 	line-height: 1.27273;
 	font-weight: 500;
 	letter-spacing: 0.015em;
-	color: ${colors.base88}
+	color: ${colors.base88};
 	font-family: ${fonts.display};
-	margin: 29px 0 0;
+	margin: 1rem 0 0;
 	word-wrap: break-word;
 	${above.md`
 		font-size: 22px;
+		margin: 1.5rem 0 0;
 	`}
 `
 
