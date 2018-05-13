@@ -14,13 +14,13 @@
   "author": "Vitor Dino",
   "license": "MIT",
   "dependencies": {
-    "next": "^5.0.0",
-    "nextein": "^1.2.1",
+    "next": "^6.0.1",
+    "nextein": "^1.2.4",
     "polished": "^1.9.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "react-fuzzy-filter": "^3.2.0",
-    "styled-components": "^3.2.5"
+    "styled-components": "^3.2.6"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.5.1"
