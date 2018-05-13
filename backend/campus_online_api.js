@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   res.send('home')
 })
 
-const port = 5000;
+const port = 8080;
 app.listen(port, () => {
   console.log(`Server campus online no ar na porta ${port}: ambiente ${env}`);
 });
