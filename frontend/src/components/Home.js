@@ -64,7 +64,7 @@ class Home extends Component {
   }
 
   requestNews () {
-    let url = 'http://localhost:5000/news/20/' + this.state.date.format("YYYY-MM-DD"); 
+    let url = 'http://localhost:8080/news/20/' + this.state.date.format("YYYY-MM-DD"); 
 
     axios.get(url).then(
       res => {

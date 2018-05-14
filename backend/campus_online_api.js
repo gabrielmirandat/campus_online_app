@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const consign = require('consign');
 const env = require('./config/env');
+const path = require("path");
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: false}))
@@ -24,9 +25,10 @@ consign({ verbose: false })
   .into(app);
 
 // get home
-app.get('/', (req, res) => {
-  res.send('home')
-})
+// app.get('/', (req, res) => {
+//  res.send('home')
+//})
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 const port = 8080;
 app.listen(port, () => {

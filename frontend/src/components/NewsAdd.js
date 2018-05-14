@@ -23,7 +23,7 @@ class NewsAdd extends Component {
 
 	handleSignIn = () => {
 		console.log(this.state.key)
-		let url = 'http://localhost:5000/access/'; 
+		let url = 'http://localhost:8080/access/'; 
 
     axios.post(url, {"chave":this.state.key}).then(
       res => {
@@ -42,7 +42,7 @@ class NewsAdd extends Component {
 	handleNewsAdd = (e) => {
 		e.preventDefault();
 		console.log(this.state.item)
-		let url = 'http://localhost:5000/addnews/'; 
+		let url = 'http://localhost:8080/addnews/'; 
 
 		axios.post(url, this.state.item).then(
       		res => {
