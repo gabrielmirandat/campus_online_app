@@ -3,7 +3,7 @@ import Head from 'next/head'
 import withPosts, { sortByDate } from 'nextein/posts'
 import Layout from '../components/Layout'
 import PostCard from '../components/PostCard'
-import { Row, Cell } from '../components/Grid'
+import { CardRow } from '../components/CardGrid'
 import { Content } from 'nextein/post'
 import Link from 'nextein/link'
 import fuzzyFilterFactory from 'react-fuzzy-filter';
@@ -60,13 +60,16 @@ const Posts = ({ posts }) => {
 			<label htmlFor='search'>Search:<InputFilter debounceTime={200} /></label>
 			{postList &&
 				<Fragment>
-					<FilterResults items={postList} fuseConfig={fuseConfig}>
-						{filteredItems =>
-							filteredItems.map((post, index) =>
-								<PostCard {...post}/>
-							)
-						}
-					</FilterResults>
+					<CardRow>
+						<FilterResults items={postList} fuseConfig={fuseConfig}>
+
+							{filteredItems =>
+								filteredItems.map((post, index) =>
+									<PostCard {...post} size={1}/>
+								)
+							}
+						</FilterResults>
+				</CardRow>
 				</Fragment>
 			}
 		</Layout>
