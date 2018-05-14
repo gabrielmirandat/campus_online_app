@@ -1,0 +1,28 @@
+{
+  "name": "campus-online",
+  "version": "1.0.0",
+  "private": false,
+  "description": "website for fac-unb news lab",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nextein",
+    "compile": "nextein build && nextein export -o www"
+  },
+  "keywords": [
+    "kunstdesign"
+  ],
+  "author": "Vitor Dino",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^6.0.1",
+    "nextein": "^1.2.4",
+    "polished": "^1.9.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-fuzzy-filter": "^3.2.0",
+    "styled-components": "^3.2.6"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.5.1"
+  }
+}
