@@ -44,7 +44,7 @@ class Audio extends Component {
 	}
 
 	render() {
-		return this.state.link ? ( <iframe className="newsAudio" scrolling="no" frameborder="no" src={this.state.link}></iframe> ) : null; // TODO: Render como audio
+		return this.state.link ? ( <iframe className="newsAudio" scrolling="no" frameBorder="no" src={this.state.link}></iframe> ) : null; // TODO: Render como audio
 	}
 }
 

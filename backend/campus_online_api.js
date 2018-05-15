@@ -28,7 +28,7 @@ consign({ verbose: false })
 // app.get('/', (req, res) => {
 //  res.send('home')
 //})
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use(express.static(path.join(__dirname, '../frontend/build/')));
 
 const port = 8080;
 app.listen(port, () => {
