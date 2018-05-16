@@ -50,27 +50,22 @@ const Posts = ({ posts }) => {
 		<Layout>
 			{tags &&
 				<form>
-					{tags.map((tag, idx) =>
-						<label key={`label-${idx}`} htmlFor={tag}> {tag}
-							<input key={`input-${idx}`} id={tag} type='checkbox' value={tag} key={`tag-${tag}`}/>
+					{tags.map(tag =>
+						<label key={tag} htmlFor={`filter-${tag}`}> {tag}
+							<input id={`filter-${tag}`} type='checkbox' value={tag}/>
 						</label>
 					)}
 				</form>
 			}
 			<label htmlFor='search'>Search:<InputFilter debounceTime={200} /></label>
 			{postList &&
-				<Fragment>
-					<CardRow>
-						<FilterResults items={postList} fuseConfig={fuseConfig}>
-
-							{filteredItems =>
-								filteredItems.map((post, index) =>
-									<PostCard {...post} size={1}/>
-								)
-							}
-						</FilterResults>
+				<CardRow>
+					<FilterResults items={postList} fuseConfig={fuseConfig}>
+						{posts => posts.map(post =>
+							<PostCard key={post.data.url} {...post} size={1}/>
+						)}
+					</FilterResults>
 				</CardRow>
-				</Fragment>
 			}
 		</Layout>
 	)
