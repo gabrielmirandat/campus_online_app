@@ -15,11 +15,13 @@ class Header extends Component {
 
   openNav() {
     document.getElementById("sidenav").style.transform = "translateX(0px)";
+    document.getElementById("sidenav").style.boxShadow = "10px 0px 50px #000";
     document.getElementById("opensidenav").style.visibility = "hidden";
   }
 
   closeNav() {
     document.getElementById("sidenav").style.transform = "translateX(-250px)";
+    document.getElementById("sidenav").style.boxShadow = "0px 0px 0px #000";
     document.getElementById("opensidenav").style.visibility = "visible";
   }
 
@@ -30,14 +32,16 @@ class Header extends Component {
           <nav id="sidenav">
             <a href="" className="closebtn" onClick={e => {e.preventDefault();this.closeNav()}}>&times;</a>
             
-            <p>Links do Campus Online<br />
+            <p>Plataformas do<br />Campus Online<br />
+              <a href="http://campus.fac.unb.br/" onClick={this.closeNav}>Site</a>
               <a href="https://twitter.com/campusitounb" className="twitter" onClick={this.closeNav}>Twitter</a>
-              <a href="https://www.instagram.com/campusonline/" className="instagram" onClick={this.closeNav}>Instagram</a>
               <a href="https://www.facebook.com/onlinecampus/" className="facebook" onClick={this.closeNav}>Facebook</a>
+              <a href="https://www.instagram.com/campusonline/" className="instagram" onClick={this.closeNav}>Instagram</a>
+              <a href="https://www.youtube.com/channel/UC6a5zNtTLs-yGnHn9nkUIyw" onClick={this.closeNav}>Youtube</a>
             </p>
             
-            <p> Links da FAC<br />
-              <a href="http://campus.fac.unb.br/" onClick={this.closeNav}>Site</a>
+            <p>Links da FAC<br />
+              <a href="http://fac.unb.br/" onClick={this.closeNav}>Site</a>
               <a href="https://twitter.com/fac_unb" onClick={this.closeNav}>Twitter</a>
               <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={this.closeNav}>Facebook</a>
               <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={this.closeNav}>Youtube</a>
