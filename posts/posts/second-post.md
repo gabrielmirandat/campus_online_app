@@ -2,6 +2,7 @@
 title: Second Post
 date: 1970-01-02
 tag: [kunst]
+dark: true
 ---
 
 This is your Second post. Now go and create an awesome blog!

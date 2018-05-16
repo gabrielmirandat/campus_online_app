@@ -23,6 +23,7 @@ const Wrapper = styled.article`
 			z-index: 1;
 		}
 	`}
+
 `
 
 const Padding = styled.div`
@@ -30,7 +31,8 @@ const Padding = styled.div`
 `
 
 const Inset = styled.div`
-	background: white;
+	background: ${p => p.dark ? colors.base : 'white'};
+	color: ${p => p.dark ? 'white' : colors.base};
 	border-bottom: 1px solid lightgray;
 	position: relative;
 	overflow: hidden;
@@ -44,6 +46,7 @@ const Inset = styled.div`
 			margin: -6px -6px;
 		}
 	`}
+
 `
 
 const PostContent = styled.div`
@@ -114,7 +117,7 @@ const Meta = styled.div`
 `
 
 const PostDate = styled.div`
-	opacity: 0.88;
+	opacity: 0.66;
 `
 
 const Anchor = styled.a`
@@ -132,7 +135,6 @@ const Title = styled.div`
 	line-height: 1.27273;
 	font-weight: 500;
 	letter-spacing: 0.015em;
-	color: ${colors.base88};
 	font-family: ${fonts.display};
 	margin: 1rem 0 0;
 	word-wrap: break-word;
@@ -152,12 +154,12 @@ const Tag = styled.div`
 
 
 const PostCard = ({ data, content, excerpt=true, index, size }) => {
-	const { url, title, date, _entry, tag, page = 'post' } = data
+	const { url, title, date, _entry, tag, page = 'post', dark } = data
 	return (
 		<CardCell xs={12} md={size?12:6}>
 			<Wrapper>
 				<Padding>
-					<Inset>
+					<Inset dark={dark}>
 						<PostContent>
 							{ data.thumbnail &&
 								<ImageWrapper size={size}>
