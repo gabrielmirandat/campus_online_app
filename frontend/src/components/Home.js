@@ -64,7 +64,7 @@ class Home extends Component {
   }
 
   requestNews () {
-    let url = 'http://164.41.56.33:8080/news/20/' + this.state.date.format("YYYY-MM-DD"); 
+    let url = 'http://app.campus.fac.unb.br/news/20/' + this.state.date.format("YYYY-MM-DD"); 
 
     axios.get(url).then(
       res => {
