@@ -1,6 +1,5 @@
 .app {
   text-align: center;
-  --color-0: #560f03;
   --color-1: #6c0318;
   --color-2: #b5202e;
   --color-3: #ff9000;
@@ -10,20 +9,18 @@
 .app-header {
   height: fit-content;
   width: 100%;
-  color: white;
+  background-color: #6c0318;
+  margin-bottom: 10px;
 }
 
 .app-logo {
-  width: 100%;
+  width: 80%;
+  padding: 15px 0px;
 }
 
 .app-title {
   padding-top: 10px;
   font-weight: bold;
-}
-
-.burguer {
-  color: #560f03;
 }
 
 #calendar-region {
@@ -41,14 +38,18 @@ nav {
   background-color: #6c0318;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 40px;
   transform: translateX(-250px);
+}
+
+header {
+  backface-visibility: hidden;
 }
 
 nav p {
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: #777777;
   display: block;
 }
 
@@ -83,7 +84,7 @@ nav .closebtn {
   margin: 5px;
   border: 0;
   border-radius: 4px;
-  background-color: #560f03;
+  background-color: #6c0318;
   color: #fff;
 }
 
@@ -92,7 +93,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #560f03;
+  background-color: #6c0318;
   color: white;
   text-align: left;
   padding-left: 5px;

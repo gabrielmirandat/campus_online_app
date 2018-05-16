@@ -1,14 +1,15 @@
 .newsImg {
 	width: 100%;
-	height: 100%;
+	height: 180px;
 }
 
 .newsVideo {
-	/* width: 100%; */
+	width: 100%;
+	height: 180px;
 	border: 0px none;
 }
 
 .newsAudio {
 	width: 100%;
-	height: 100%;
+	height: 180px;
 }
