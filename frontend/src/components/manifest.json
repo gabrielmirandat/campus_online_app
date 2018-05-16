@@ -1,0 +1,15 @@
+{
+  "short_name": "Campus Online",
+  "name": "Campus Online UnB",
+  "icons": [
+    {
+      "src":"icon.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#6c0318",
+  "theme_color": "#b5202e",
+  "display": "standalone"
+}
