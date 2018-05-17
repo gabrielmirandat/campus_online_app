@@ -52,7 +52,7 @@ class Header extends Component {
           </nav>
             
           <span id="opensidenav" className="burger" onClick={this.openNav}>&#9776;</span>
-	<link rel="manifest" href="/manifest.json">
+        	<link rel="manifest" href="/manifest.json"></link>
 
         </header>
 

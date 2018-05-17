@@ -1,4 +1,4 @@
-.shortNews {
+.newsItem {
 	background-color: #fff;
 	padding: 25px;
 	border-color: #151515;
@@ -6,7 +6,7 @@
 	border-style: solid;
 }
 
-/* .shortNews:hover {
+/* .newsItem:hover {
 	background-color: #eee;
 } */
 
@@ -60,8 +60,10 @@
 }
 
 .link {
+	display: inline-block;
 	background-color: #f9c19a;
 	border-radius: 5px;
+	margin-top: 15px;
 	padding: 7px;
 	font-weight: bold;
 	color: #6c0318;

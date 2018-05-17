@@ -12,6 +12,13 @@ class Imagem extends Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps) {
+		this.setState({ 
+			link: nextProps.link,
+			alt: nextProps.alt
+		});
+	}
+	
 	render() {
 		return this.state.link ? ( <img className="newsImg" src={this.state.link} alt={this.state.alt} /> ) : null;
 	}
@@ -27,6 +34,13 @@ class Video extends Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps) {
+		this.setState({ 
+			link: nextProps.link,
+			alt: nextProps.alt
+		});
+	}
+	
 	render() {
 		return this.state.link ? ( <iframe className="newsVideo" src={this.state.link}>
 </iframe> ) : null; // TODO: Render como video
@@ -41,6 +55,13 @@ class Audio extends Component {
 			link: props.link,
 			alt: props.alt
 		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({ 
+			link: nextProps.link,
+			alt: nextProps.alt
+		});
 	}
 
 	render() {
