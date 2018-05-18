@@ -13,3 +13,7 @@
   "theme_color": "#b5202e",
   "display": "standalone"
 }
+{
+ "gcm_sender_id_comment": "For OneSignal Web Push Notifications, Do Not Change ID",
+  "gcm_sender_id": "482941778795"
+}
