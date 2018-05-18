@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 
 import logo from '../Logo-Campus.png';
@@ -52,6 +52,8 @@ class Header extends Component {
           </nav>
             
           <span id="opensidenav" className="burger" onClick={this.openNav}>&#9776;</span>
+        	<link rel="manifest" href="/manifest.json"></link>
+
         </header>
 
         <div className="app-header">

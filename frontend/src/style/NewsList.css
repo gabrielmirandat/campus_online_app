@@ -1,3 +1,24 @@
-.newsList {
-	/* margin: 30px; */
+.newsList .dateDivider {
+	text-align: center;
+	margin: -2px 0px 0 0px;
+	padding: 10px 0px;
+	background-color: #b5202e;
+	color: #f9c19a;
+	font-weight: 600;
+	font-size: 1.2em;
+	box-shadow: inset 0px 10px 20px -10px #000;
+	position: relative;
+	z-index: 1;
+}
+
+.newsList span {
+	margin: 70px 35px 0px 35px;
+	display: inline-block;
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.5em;
+	background-color: #b5202e;
+	padding: 10px;
+	border-radius: 4px;
+	color: #f9c19a;
 }

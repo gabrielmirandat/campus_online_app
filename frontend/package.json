@@ -1,6 +1,6 @@
 {
   "name": "campus_online",
-  "homepage": "http://www.campus.fac.unb.br/app",
+  "homepage": "http://www.campus.fac.unb.br",
   "version": "0.1.0",
   "private": false,
   "dependencies": {

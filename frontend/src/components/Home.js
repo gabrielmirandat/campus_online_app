@@ -64,11 +64,12 @@ class Home extends Component {
   }
 
   requestNews () {
-    let url = 'http://localhost:5000/news/20/' + this.state.date.format("YYYY-MM-DD"); 
+    let url = 'http://app.campus.fac.unb.br/news/20/' + this.state.date.format("YYYY-MM-DD"); 
 
     axios.get(url).then(
       res => {
-        console.log("Home", res.data.response);
+        // console.log("Home", res.data.response);
+        this.setState({newsList: []});
         this.setState({newsList: res.data.response});
       }, 
       err => {
@@ -79,33 +80,34 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div id="Home">
         <div className="app-content">
-        <div id="calendar-region">
-          <button
-            className="calendar-button"
-            onClick={this.toggleCalendar}>
-            <h3>
-              {this.state.date.format("DD/MM/YYYY")}
-            </h3>
-          </button>
-        </div>
+          <div id="calendar-region">
+            <button
+              className="calendar-button"
+              onClick={this.toggleCalendar}>
+              <h3>
+                {this.state.date.format("DD/MM/YYYY")}
+              </h3>
+            </button>
+          </div>
 
-          <NewsList list={this.state.newsList} />
-          
-          {
-            this.state.calendarOpen && (
-              <DatePicker
-                dateFormat="DD/MM/YYYY"
-                minDate={moment("2018-04-18")}
-                selected={this.state.date}
-                onChange={this.updateDate}
-                withPortal
-                inline 
-              />
-            )
-          }
-          
+            <NewsList list={this.state.newsList} />
+            
+            {
+              this.state.calendarOpen && (
+                <DatePicker
+                  dateFormat="DD/MM/YYYY"
+                  minDate={moment("2018-04-18")}
+                  maxDate={moment()}
+                  selected={this.state.date}
+                  onChange={this.updateDate}
+                  withPortal
+                  inline 
+                />
+              )
+            }
+            
         </div>
       </div>
     );
