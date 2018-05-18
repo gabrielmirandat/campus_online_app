@@ -98,7 +98,7 @@ class Home extends Component {
               this.state.calendarOpen && (
                 <DatePicker
                   dateFormat="DD/MM/YYYY"
-                  minDate={moment("2018-04-18")}
+                  minDate={moment("2018-05-21")}
                   maxDate={moment()}
                   selected={this.state.date}
                   onChange={this.updateDate}
