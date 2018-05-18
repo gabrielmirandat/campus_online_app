@@ -82,34 +82,18 @@ class Home extends Component {
     return (
       <div id="Home">
         <div className="app-content">
-          <div id="calendar-region">
-            <button
-              className="calendar-button"
-              onClick={this.toggleCalendar}>
-              <h3>
-                {this.state.date.format("DD/MM/YYYY")}
-              </h3>
-            </button>
-          </div>
-
-            <NewsList list={this.state.newsList} />
-            
-            {
-              this.state.calendarOpen && (
-                <DatePicker
-                  dateFormat="DD/MM/YYYY"
-                  minDate={moment("2018-05-21")}
-                  maxDate={moment()}
-                  selected={this.state.date}
-                  onChange={this.updateDate}
-                  withPortal
-                  inline 
-                />
-              )
-            }
-            
-        </div>
-      </div>
+          <div className="calendar-button" id="calendar-region">  
+	     <DatePicker
+                dateFormat="DD/MM/YYYY"
+                minDate={moment("2018-05-21")}
+                maxDate={moment()}
+                selected={this.state.date}
+                onChange={this.updateDate}
+                withPortal
+             />
+	   </div>
+         </div>
+       </div>
     );
   }
 }
