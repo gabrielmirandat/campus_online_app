@@ -59,3 +59,36 @@ self.addEventListener('fetch', function(event) {
       );
     }
 });
+
+//notifica icone app
+let deferredPrompt;
+
+btnAdd.addEventListener('click', (e) => {
+  // hide our user interface that shows our A2HS button
+  btnAdd.style.display = 'none';
+  // Show the prompt
+  deferredPrompt.prompt();
+  // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice
+    .then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the A2HS prompt');
+      } else {
+        console.log('User dismissed the A2HS prompt');
+      }
+      deferredPrompt = null;
+    });
+});
+
+
+@media all and (display-mode: standalone) {
+  body {
+    background-color: yellow;
+  }
+}
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  console.log('display-mode is standalone');
+}
+if (window.navigator.standalone === true) {
+  console.log('display-mode is standalone');
+}
