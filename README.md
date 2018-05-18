@@ -7,9 +7,9 @@ Trabalho para a disciplina Desenvolvimento de Aplicativos 2018/1
 ## FAZER
 ### PRIORIDADE (21/05)
 - [GM] Adicionar bolinha de carregando quando buscando do server
-- [GM] Trocar chave de acesso (secret)
 - [GM] Clicar fora na tela fecha o calendário
-- [GM] Mostrar mensagens só do dia se não for o dia de hoje, se dia de hoje mostrar os de hoje, mais 20 anteriores (por enquanto so dia)
+- [GM] Trocar chave de acesso (secret) **Feito**
+- [GM] Mostrar mensagens só do dia se não for o dia de hoje, se dia de hoje mostrar os de hoje, mais 20 anteriores (por enquanto so dia) **Feito**
 
 - [GB] Adicionar validação para apagar a noticia em caso de erro (preview embaixo) - **Feito Preview embaixo**
 - [GB] Ajustar icone da FAC no aplicativo - **Feito**
