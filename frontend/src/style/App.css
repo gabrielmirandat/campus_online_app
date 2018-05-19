@@ -23,9 +23,43 @@
   font-weight: bold;
 }
 
-#calendar-region {
+.calendar-button {
+  margin: auto;
+  padding: 5px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #6c0318;
+  color: #fff;
+  height: 50px;
+  width: fit-content;
+}
+
+.calendar-button > div {
   display: flex;
-  justify-content: center;
+  height: 100%;
+  margin: auto;
+}
+
+.calendar-button input {
+  position: relative;
+  max-width: 100px;
+  margin: auto;
+  padding: 0;
+  border: none;
+  appearance: none;
+  height: 100%;
+  background-color: #6c0318;
+  /* background-color: #000; */
+  color: #fff;
+  font-weight: 600;
+  font-size: 1em;
+  /* width: fit-content; */
+  text-align: center;
+  cursor: pointer;
+}
+
+.react-datepicker__day--selected {
+  background-color: #6c0318 !important;
 }
 
 nav {
@@ -78,15 +112,6 @@ nav .closebtn {
 .burger {
   font-size:30px;
   cursor:pointer;
-}
-
-.calendar-button {
-  padding: 5px;
-  margin: 5px;
-  border: 0;
-  border-radius: 4px;
-  background-color: #6c0318;
-  color: #fff;
 }
 
 footer {

@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import axios from 'axios';
 
-import testImg from '../icon.png'
 import 'react-datepicker/dist/react-datepicker.css';
 import '../style/App.css';
 
@@ -23,7 +22,8 @@ class Home extends Component {
     this.requestNews = this.requestNews.bind(this);
   }
 
-  componentWillMount () {
+  componentDidMount() {
+    document.querySelectorAll(".calendar-button input").forEach( (calBtn) => {calBtn.setAttribute("readonly", "readonly");} );
     this.requestNews();
 
     // this.addNews( {
@@ -44,11 +44,14 @@ class Home extends Component {
     //   link_video: null,
     //   link_imagem: "https://i.imgur.com/B2QALtj.jpg",
     //   link_audio: null
-		// } );
-	}
+    // } );
+    
+  }
 
 	addNews( news ) {
-    this.state.newsList.push( news );
+    var nl = this.state.newsList;
+    nl.push( news );
+    this.setState( nl );
 	}
 
   updateDate(date) {
@@ -82,16 +85,17 @@ class Home extends Component {
     return (
       <div id="Home">
         <div className="app-content">
-          <div className="calendar-button" id="calendar-region">  
-	     <DatePicker
+          <div className="calendar-button" id="calendar-region">
+           <DatePicker
                 dateFormat="DD/MM/YYYY"
                 minDate={moment("2018-05-21")}
                 maxDate={moment()}
                 selected={this.state.date}
                 onChange={this.updateDate}
                 withPortal
-             />
-	   </div>
+           />
+          </div>
+          <NewsList list={this.state.newsList} />
          </div>
        </div>
     );
