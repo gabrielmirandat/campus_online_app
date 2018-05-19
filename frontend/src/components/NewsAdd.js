@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import NewsItem from './NewsItem';
 
+import loadingImage from '../loading.gif'
 import '../style/NewsAdd.css';
 
 class NewsAdd extends Component {
@@ -14,7 +15,8 @@ class NewsAdd extends Component {
 			key: null,
 			valid: false,
 			item: {},
-			redirect: false
+			redirect: false,
+			loading: false
 		}
 	}
 
@@ -24,25 +26,29 @@ class NewsAdd extends Component {
 	}
 
 	handleSignIn = () => {
-		console.log(this.state.key)
-		let url = 'http://app.campus.fac.unb.br/access/'; 
+	this.setState({ loading: true });	
+	let url = 'http://app.campus.fac.unb.br/access/'; 
 
     axios.post(url, {"chave":this.state.key}).then(
       res => {
-				console.log(res.data)
-				if(res.data.response.length)
-					this.setState({valid:true});
-				else 
-					alert("Chave inválida!");
+		console.log(res.data)
+		if(res.data.response.length)
+			this.setState({valid:true});
+		else 
+			alert("Chave inválida!");
       }, 
       err => {
         alert("Erro ao logar com chave!");
+	  },
+	  () => {
+        this.setState({ loading: false });
       }
     );
 	}
 
 	handleNewsAdd = (e) => {
 		e.preventDefault();
+		this.setState({ loading: true });	
 		console.log(this.state.item)
 		let url = 'http://app.campus.fac.unb.br/addnews/'; 
 
@@ -53,6 +59,9 @@ class NewsAdd extends Component {
 			}, 
       		err => {
         		alert("Erro ao adicionar noticia!");
+			},
+			() => {
+				this.setState({ loading: false });
 			}
 			  
     	);
@@ -86,11 +95,12 @@ class NewsAdd extends Component {
 		if (!this.state.valid) {
 			return (
 				<div className="key-login">
+					{ this.state.loading && <img className="centered" src={loadingImage} /> }
 					<p> <Link className="btn" to='/'>Home</Link> </p>
 					<h3>Chave de Acesso</h3>
 					<input type="password" placeholder="chave" onChange={(e) => {this.setState({key: e.target.value})}}/>
 					<button onClick={this.handleSignIn.bind(this)}> Acessar </button>
-			</div>
+				</div>
 			);
 		} else {
 			if (this.state.redirect) {
@@ -99,6 +109,7 @@ class NewsAdd extends Component {
 
 			return (
 				<div className="news-add">
+					{ this.state.loading && <img className="centered" src={loadingImage} /> }
 					<form onSubmit={this.handleNewsAdd}>
 						<p> <Link className="btn" to='/'>Home</Link> </p>
 						<h3>Titulo</h3>

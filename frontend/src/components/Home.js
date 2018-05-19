@@ -6,6 +6,8 @@ import axios from 'axios';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import '../style/App.css';
+import '../style/Loading.css';
+import loadingImage from '../loading.gif'
 
 class Home extends Component {
 
@@ -14,7 +16,8 @@ class Home extends Component {
 
     this.state = {date: moment(), 
                   calendarOpen: false, 
-                  newsList: []};
+                  newsList: [], 
+                  loading: false};
 
     
     this.updateDate = this.updateDate.bind(this);
@@ -67,6 +70,7 @@ class Home extends Component {
   }
 
   requestNews () {
+    this.setState({ loading: true });
     let url = 'http://app.campus.fac.unb.br/news/20/' + this.state.date.format("YYYY-MM-DD"); 
 
     axios.get(url).then(
@@ -77,6 +81,9 @@ class Home extends Component {
       }, 
       err => {
         console.log("Não conseguiu buscar do banco!")
+      },
+      () => {
+        this.setState({ loading: false });
       }
     );
   }
@@ -84,6 +91,7 @@ class Home extends Component {
   render() {
     return (
       <div id="Home">
+        { this.state.loading && <img className="centered" src={loadingImage} /> }
         <div className="app-content">
           <div className="calendar-button" id="calendar-region">
            <DatePicker

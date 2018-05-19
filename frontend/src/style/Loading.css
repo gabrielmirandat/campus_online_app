@@ -1,0 +1,9 @@
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px; /* Half the height */
+    margin-left: -20px; /* Half the width */
+}
