@@ -7,6 +7,7 @@ import PostCard from '../components/PostCard'
 import { Content } from 'nextein/post'
 // import { Row, Cell } from '../components/Grid'
 import { CardRow } from '../components/CardGrid'
+import { fonts } from '../utils/variables'
 
 
 
@@ -19,7 +20,7 @@ const Index = ({ posts }) => {
 			</Head>
 
 			<Layout>
-				<h2 style={{fontSize: '3rem', lineHeight: '3.5rem', marginTop: '6rem', marginBottom: '2rem'}}>Matérias</h2>
+				<h2 style={{fontFamily: fonts.display, fontSize: '3rem', lineHeight: '3.5rem', marginTop: '6rem', marginBottom: '2rem'}}>Matérias</h2>
 				{postList &&
 					<CardRow>
 						{postList.slice(0,1).map((post, index) =>
@@ -32,7 +33,7 @@ const Index = ({ posts }) => {
 				}
 
 				<Link href='/posts'>
-					<a href='/posts' style={{display: 'block', fontSize: '1.5rem', lineHeight: '2rem', marginTop: '3rem', color: 'currentColor'}}>Ver todas as {postList.length} matérias</a></Link>
+					<a href='/posts' style={{fontFamily: fonts.display, display: 'block', fontSize: '1.5rem', lineHeight: '2rem', marginTop: '3rem', color: 'currentColor'}}>Ver todas as {postList.length} matérias</a></Link>
 			</Layout>
 		</main>
 	)
