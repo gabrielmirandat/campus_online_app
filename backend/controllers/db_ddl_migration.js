@@ -28,7 +28,7 @@ module.exports = (app) => {
         },
         function(arg, callback) {
           let sql = 'CREATE TABLE IF NOT EXISTS noticia(id INT AUTO_INCREMENT, titulo VARCHAR(60) NOT NULL, resumo VARCHAR(300) NOT NULL, texto VARCHAR(600) NOT NULL, '+ 
-          'data TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, link VARCHAR(300), link_video VARCHAR(300), link_foto VARCHAR(300), link_audio VARCHAR(300), PRIMARY KEY(id))';
+          'data TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, link VARCHAR(300), link_video VARCHAR(300), link_imagem VARCHAR(300), link_audio VARCHAR(300), PRIMARY KEY(id))';
           // get a connection from the pool
           pool.getConnection(function(err, connection) {
             if(err) {
@@ -53,7 +53,7 @@ module.exports = (app) => {
                        texto: 'Texto da noticia de teste',
                        link: 'https://www.metropoles.com/colunas-blogs/grande-angular/salario-de-servidor-e-depositado-e-nao-aparece-na-conta-brb-explica',
                        link_video: 'https://www.youtube.com/embed/tgbNymZ7vqY',
-                       link_foto: 'https://i.imgur.com/TmtyMsp.jpg',
+                       link_imagem: 'https://i.imgur.com/TmtyMsp.jpg',
                        link_audio: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/34019569&amp;color=0066cc'};
           let sql = 'INSERT INTO noticia SET ?';
           // get a connection from the pool
