@@ -77,13 +77,11 @@ class Home extends Component {
       res => {
         // console.log("Home", res.data.response);
         this.setState({newsList: []});
-        this.setState({newsList: res.data.response});
+        this.setState({newsList: res.data.response, loading: false});
       }, 
       err => {
-        console.log("Não conseguiu buscar do banco!")
-      },
-      () => {
-        this.setState({ loading: false });
+        console.log("Não conseguiu buscar do banco!");
+	this.setState({ loading: false });
       }
     );
   }

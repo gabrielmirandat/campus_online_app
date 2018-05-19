@@ -36,12 +36,11 @@ class NewsAdd extends Component {
 			this.setState({valid:true});
 		else 
 			alert("Chave inválida!");
+		this.setState({ loading: false });
       }, 
       err => {
         alert("Erro ao logar com chave!");
-	  },
-	  () => {
-        this.setState({ loading: false });
+	this.setState({ loading: false });
       }
     );
 	}
@@ -55,13 +54,10 @@ class NewsAdd extends Component {
 		axios.post(url, this.state.item).then(
       		res => {
 				console.log(res.data.response);
-				this.setState({ redirect: true });
+				this.setState({ redirect: true, loading: false});
 			}, 
       		err => {
         		alert("Erro ao adicionar noticia!");
-			},
-			() => {
-				this.setState({ loading: false });
 			}
 			  
     	);
@@ -86,7 +82,7 @@ class NewsAdd extends Component {
 	}
 
 	componentDidUpdate() {
-		if( this.state.valid ) {
+		if( this.state.valid && document.getElementById("Adicionar") ) {
 			document.getElementById("Adicionar").disabled = !(this.state.item.titulo && this.state.item.texto);
 		}
 	}
