@@ -15,8 +15,37 @@ collections:
     format: "yaml-frontmatter"
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string", required: true}
-      - {label: "Publish Date", name: "date", widget: "date", required: true}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: true}
-      # - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
-      - {label: "Body", name: "body", widget: "markdown", required: true}
+      - {label: "Título", name: "title", widget: "string", required: true}
+      - {label: "Data de publicação", name: "date", widget: "date", format: "DD MM YY", required: true}
+      - {label: "Imagem de capa", name: "thumbnail", widget: "image", required: false}
+      - {label: "Editoria", name: "editorial", widget: "relation", collection: "editorials", searchFields: ["title"], valueField: "title", required: true}
+      - {label: "Autor", name: "author", widget: "relation", collection: "authors", searchFields: ["title"], valueField: "title", required: false}
+      - {label: "Corpo", name: "body", widget: "markdown", required: true}
+
+
+  - name: "authors"
+    label: "Autores"
+    folder: "/data/authors"
+    create: true
+    extension: "md"
+    format: "yaml-frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nome", name: "title", widget: "string", required: true}
+      - {label: "Ano atuando no Campus", name: "year", widget: "number", valueType: "int", min: 1980, max: 2080, default: 2018, required: true}
+      - {label: "Semestre (0 ou 1) atuando no Campus", name: "semester", widget: "number", valueType: "int", min: 0, max: 1, required: true}
+      - {label: "Foto (opcional)", name: "thumbnail", widget: "image", required: false}
+      - {label: "Bio (opcional)", name: "body", widget: "markdown", required: true}
+
+
+  - name: "editorials"
+    label: "Editorias"
+    folder: "/data/editorials"
+    create: true
+    extension: "md"
+    format: "yaml-frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nome da Editoria", name: "title", widget: "string", required: true}
+      - {label: "Cor (hexadecimal)", name: "color", widget: "string", required: true, pattern: [".{12,}", "Must have at least 12 characters"]}
+      - {label: "Descrição (opcional)", name: "title", widget: "string", required: true}
