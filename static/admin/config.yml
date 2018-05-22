@@ -32,10 +32,15 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Nome", name: "title", widget: "string", required: true}
-      - {label: "Ano atuando no Campus", name: "year", widget: "number", valueType: "int", min: 1980, max: 2080, default: 2018, required: true}
-      - {label: "Semestre (0 ou 1) atuando no Campus", name: "semester", widget: "number", valueType: "int", min: 0, max: 1, required: true}
       - {label: "Foto (opcional)", name: "thumbnail", widget: "image", required: false}
-      - {label: "Bio (opcional)", name: "body", widget: "markdown", required: true}
+      - {label: "Bio (opcional)", name: "body", widget: "markdown", required: false}
+      - label: "Período atuando no Campus"
+        name: "active"
+        widget: "object"
+        required: true
+        fields:
+          - {label: "Ano", name: "year", widget: "number", valueType: "int", min: 1980, max: 2080, default: 2018, required: true}
+          - {label: "Semestre (0 ou 1)", name: "semester", widget: "select", options: ["0", "1"], required: true}
 
 
   - name: "editorials"
@@ -47,5 +52,5 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Nome da Editoria", name: "title", widget: "string", required: true}
-      - {label: "Cor (hexadecimal)", name: "color", widget: "string", required: true, pattern: [".{12,}", "Must have at least 12 characters"]}
+      - {label: "Cor (hexadecimal)", name: "color", widget: "string", required: true, pattern: ["^#(?:[0-9a-fA-F]{3}){1,2}$", "Cor Inválida"]}
       - {label: "Descrição (opcional)", name: "title", widget: "string", required: true}
