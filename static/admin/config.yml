@@ -41,6 +41,8 @@ collections:
         fields:
           - {label: "Ano", name: "year", widget: "number", valueType: "int", min: 1980, max: 2080, default: 2018, required: true}
           - {label: "Semestre (0 ou 1)", name: "semester", widget: "select", options: ["0", "1"], required: true}
+          - {label: "Ano", name: "year2", widget: "number", valueType: "int", min: 1980, max: 2080, default: 2018, required: true}
+          - {label: "Semestre (0 ou 1)", name: "semester2", widget: "select", options: ["0", "1"], required: true}
 
 
   - name: "editorials"
