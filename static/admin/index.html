@@ -24,13 +24,36 @@
 
 		.nc-objectControl-root{
 			display: flex;
+			flex-wrap: wrap;
+			flex-grow: 1;
 			padding: 0;
-			padding-bottom: 14px;
 		}
 		.nc-objectControl-root .nc-controlPane-control{
 			width: 50%;
-			padding: 0 14px;
+			margin-top: 7px;
+			padding: 0 14px 12px;
 		}
+
+		.nc-app-main{
+			min-width: unset !important;
+		}
+		.nc-entryEditor-containerOuter{
+			min-width: unset !important;
+		}
+		.nc-entryEditor-toolbar{
+			min-width: unset !important;
+		}
+		.nc-entryEditor-toolbar-backCollection,
+		.nc-entryEditor-toolbar-backStatus{
+			display: none;
+		}
+		@media (min-width: 768px){
+			.nc-entryEditor-toolbar-backCollection,
+			.nc-entryEditor-toolbar-backStatus{
+				display: inherit
+			}
+		}
+
 	</style>
 
 	<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
