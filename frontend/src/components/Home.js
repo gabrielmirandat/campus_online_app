@@ -28,34 +28,7 @@ class Home extends Component {
   componentDidMount() {
     document.querySelectorAll(".calendar-button input").forEach( (calBtn) => {calBtn.setAttribute("readonly", "readonly");} );
     this.requestNews();
-
-    // this.addNews( {
-    //   data: moment('02/05/2018', 'DD/MM/YYYY'),
-    //   titulo: "Assembléia geral dos estudantes",
-		// 	texto: "<p>O DCE Honestino Guimarães convoca todos os estudantes da UnB a participarem da assembléia geral que tem como pauta o indicativo de greve estudantil. A reunião vai acontecer hoje ao meio-dia no Ceubinho.</p>",
-    //   link: null,
-    //   link_video: null,
-		// 	link_imagem: "https://i.imgur.com/0290eG5.jpg",
-		// 	link_audio: null
-		// } );
-
-		// this.addNews( {
-    //   data: moment('02/05/2018', 'DD/MM/YYYY'),
-    //   titulo: "Doação de sangue HUB",
-		// 	texto: "<p>Começa hoje a campanha de doação de sangue do Hospital Universitário de Brasília (HUB). Este ano, foi criada uma gincana para estimular a comunidade acadêmica a doar sangue e os vencedores vão receber vale-prêmios de até 250 reais.",
-    //   link: "#",
-    //   link_video: null,
-    //   link_imagem: "https://i.imgur.com/B2QALtj.jpg",
-    //   link_audio: null
-    // } );
-    
   }
-
-	addNews( news ) {
-    var nl = this.state.newsList;
-    nl.push( news );
-    this.setState( nl );
-	}
 
   updateDate(date) {
     this.setState({date}, () => {
@@ -75,7 +48,6 @@ class Home extends Component {
 
     axios.get(url).then(
       res => {
-        // console.log("Home", res.data.response);
         this.setState({newsList: []});
         this.setState({newsList: res.data.response, loading: false});
       }, 

@@ -15,23 +15,17 @@ class NewsList extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+		this.setState({ list: []});
 		this.setState({ list: nextProps.list });
-	}
-
-	componentDidMount(){
-		// console.log("NewsList", this.state.list);
 	}
 
 	render() {
 		var content = [];
 		if( this.state.list.length === 0 ) {
-			content = <span>Nenhuma notícia publicada nesse dia</span>;
+			content = <span>Nenhuma notícia publicada nos últimos dias</span>;
 		} else {
 
-			var newsList = this.state.list.sort( (a, b) => {
-										return moment( a.data ).isBefore( b.data );
-									} );
-
+			var newsList = this.state.list;
 			var prevDate = moment( newsList[0].data );
 			var key = 0;
 			content.push( <NewsItem item={newsList[0]} key={key++} id={newsList[0].id} /> );
