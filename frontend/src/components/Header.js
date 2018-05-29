@@ -47,8 +47,10 @@ class Header extends Component {
               <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={this.closeNav}>Youtube</a>
               <a href="https://issuu.com/campusunb" onClick={this.closeNav}>Issu</a>
             </p>
-            <br/><br/>
-            <p> <Link to='/addnews' onClick={this.closeNav}>Adicionar notícias</Link> </p>
+
+	    <p>Administrador<br />
+            	<a> <Link to='/addnews' onClick={this.closeNav}>Acesso</Link> </a>
+	    </p>
           </nav>
             
           <span id="opensidenav" className="burger" onClick={this.openNav}>&#9776;</span>
