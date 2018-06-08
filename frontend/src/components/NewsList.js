@@ -22,7 +22,7 @@ class NewsList extends Component {
 	render() {
 		var content = [];
 		if( this.state.list.length === 0 ) {
-			content = <span>Nenhuma notícia publicada nos últimos dias</span>;
+			content = <span>Nenhuma notícia publicada hoje</span>;
 		} else {
 
 			var newsList = this.state.list;
